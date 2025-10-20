@@ -1,0 +1,79 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 70px; /* Header height */
+}
+
+.heroContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.heroContent {
+  max-width: 600px;
+}
+
+.greeting {
+  font-size: 1.2rem;
+  color: var(--primary-color);
+}
+
+.name {
+  font-size: 4rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.1;
+}
+
+.title {
+  font-size: 2rem;
+  color: var(--text-secondary-color);
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+.title::after {
+  display: none; /* remove global h2 style for this specific h2 */
+}
+
+.description {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.ctaButton {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 50px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 2px solid var(--primary-color);
+}
+
+.ctaButton:hover {
+  background-color: transparent;
+  color: var(--primary-color);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 170, 255, 0.2);
+}
+
+.heroImage {
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 5px solid var(--primary-color);
+  box-shadow: 0 0 30px var(--primary-glow);
+}
+
+.heroImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
