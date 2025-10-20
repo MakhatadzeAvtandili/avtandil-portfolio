@@ -13,16 +13,20 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <div className={`container ${styles.headerContainer}`}>
-        <div className={styles.logo}>{t("name")}</div>
-        <nav className={styles.nav}>
+        <div className={styles.logo} aria-label={t("name")}>
+          {t("name")}
+        </div>
+
+        <nav className={styles.nav} aria-label="Primary">
           <ul>
             <li>
               <Link
                 to="hero"
                 spy={true}
                 smooth={true}
-                offset={-70}
+                offset={-80}
                 duration={500}
+                activeClass={styles.active}
               >
                 {t("nav_home")}
               </Link>
@@ -32,8 +36,9 @@ const Header = () => {
                 to="about"
                 spy={true}
                 smooth={true}
-                offset={-70}
+                offset={-80}
                 duration={500}
+                activeClass={styles.active}
               >
                 {t("nav_about")}
               </Link>
@@ -43,8 +48,9 @@ const Header = () => {
                 to="projects"
                 spy={true}
                 smooth={true}
-                offset={-70}
+                offset={-80}
                 duration={500}
+                activeClass={styles.active}
               >
                 {t("nav_projects")}
               </Link>
@@ -54,25 +60,35 @@ const Header = () => {
                 to="contact"
                 spy={true}
                 smooth={true}
-                offset={-70}
+                offset={-80}
                 duration={500}
+                activeClass={styles.active}
               >
                 {t("nav_contact")}
               </Link>
             </li>
           </ul>
         </nav>
-        <div className={styles.langSwitcher}>
+
+        <div
+          className={styles.langSwitcher}
+          role="group"
+          aria-label="Language switcher"
+        >
           <button
             onClick={() => changeLanguage("ka")}
             disabled={i18n.language === "ka"}
+            aria-pressed={i18n.language === "ka"}
           >
             KA
           </button>
-          <span>|</span>
+          <span className={styles.divider} aria-hidden="true">
+            |
+          </span>
           <button
             onClick={() => changeLanguage("en")}
             disabled={i18n.language === "en"}
+            aria-pressed={i18n.language === "en"}
           >
             EN
           </button>

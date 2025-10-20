@@ -1,79 +1,280 @@
+:root {
+  /* იგივე პალიტრა რაც ჰედერშია (შეგიძლია გააზიაროთ ერთ common.css-ში) */
+  --header-h: 80px;
+  --txt: #ffffff;
+  --muted: rgba(255, 255, 255, 0.78);
+  --accent-1: #ff8a00;
+  --accent-2: #e52e71;
+  --accent-3: #00c2ff;
+  --panel-bg: rgba(15, 18, 38, 0.38);
+  --panel-border: rgba(255, 255, 255, 0.18);
+}
+
+/* ჰერო მთელი ეკრანი - ჰედერის სიმაღლის გამოკლებით */
 .hero {
-  min-height: 100vh;
+  position: relative;
+  isolation: isolate;
+  min-height: calc(100vh - var(--header-h));
+  padding: clamp(28px, 6vw, 64px) 0;
   display: flex;
   align-items: center;
-  padding-top: 70px; /* Header height */
+  color: var(--txt);
+  overflow: hidden;
+
+  /* aurora background */
+  background: radial-gradient(
+      1200px 320px at 10% 0%,
+      rgba(255, 138, 0, 0.22),
+      transparent 60%
+    ),
+    radial-gradient(
+      1100px 420px at 90% 10%,
+      rgba(0, 194, 255, 0.22),
+      transparent 60%
+    ),
+    linear-gradient(180deg, #0b0f1e 0%, #0f1428 100%);
+  scroll-margin-top: calc(var(--header-h) + 16px);
+}
+
+/* მსუბუქი მოძრავი ბლობები */
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background: radial-gradient(
+      600px 380px at 20% 30%,
+      rgba(229, 46, 113, 0.22),
+      transparent 60%
+    ),
+    radial-gradient(
+      700px 420px at 80% 60%,
+      rgba(0, 194, 255, 0.2),
+      transparent 65%
+    );
+  filter: blur(30px);
+  transform: translate3d(0, 0, 0);
+  animation: floatAurora 22s ease-in-out infinite alternate;
+  z-index: -1;
+}
+.hero::after {
+  animation-duration: 28s;
+  animation-delay: -6s;
+  opacity: 0.8;
+}
+
+@keyframes floatAurora {
+  from {
+    transform: translate3d(-2%, -1%, 0) scale(1.02);
+  }
+  to {
+    transform: translate3d(2%, 1%, 0) scale(1.06);
+  }
 }
 
 .heroContainer {
-  display: flex;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: clamp(24px, 4vw, 48px);
   align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
 }
 
+/* მინისებრი პანელი ტექსტისთვის */
 .heroContent {
-  max-width: 600px;
+  max-width: 720px;
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.06),
+      rgba(255, 255, 255, 0.02)
+    ),
+    var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: 20px;
+  padding: clamp(18px, 3.5vw, 32px);
+  backdrop-filter: saturate(160%) blur(14px);
+  -webkit-backdrop-filter: saturate(160%) blur(14px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
 }
 
+/* პატარა მისალმება */
 .greeting {
-  font-size: 1.2rem;
-  color: var(--primary-color);
-}
-
-.name {
-  font-size: 4rem;
-  margin-bottom: 0.5rem;
-  line-height: 1.1;
-}
-
-.title {
-  font-size: 2rem;
-  color: var(--text-secondary-color);
-  margin-bottom: 1.5rem;
-  text-align: left;
-}
-.title::after {
-  display: none; /* remove global h2 style for this specific h2 */
-}
-
-.description {
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
-}
-
-.ctaButton {
-  display: inline-block;
-  background-color: var(--primary-color);
-  color: #fff;
-  padding: 12px 25px;
-  border-radius: 50px;
-  font-weight: bold;
+  margin: 0 0 10px 0;
+  font-weight: 700;
+  letter-spacing: 0.6px;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  border: 2px solid var(--primary-color);
+  font-size: 12px;
+  color: var(--muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.ctaButton:hover {
-  background-color: transparent;
-  color: var(--primary-color);
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0, 170, 255, 0.2);
+/* სახელი — დიდი, გრადიენტული ტექსტი მკვეთრი წაკითხვით */
+.name {
+  margin: 6px 0;
+  font-size: clamp(32px, 6vw, 64px);
+  line-height: 1.05;
+  font-weight: 900;
+  letter-spacing: 0.2px;
+  background: linear-gradient(90deg, #fff 0%, #eaeaea 50%, #fff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 3px 14px rgba(255, 255, 255, 0.18));
 }
 
-.heroImage {
-  width: 350px;
-  height: 350px;
-  border-radius: 50%;
+/* ტიტული/როლი — მკვეთრი, მაგრამ ზომიერად */
+.title {
+  margin: 0 0 10px 0;
+  font-size: clamp(18px, 2.4vw, 28px);
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  color: #dce7ff;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+}
+
+/* აღწერა */
+.description {
+  margin: 10px 0 24px 0;
+  max-width: 62ch;
+  color: var(--muted);
+  font-size: clamp(14px, 1.4vw, 16px);
+  line-height: 1.65;
+}
+
+/* CTA ღილაკი — გრადიენტი + შაინ-ეფექტი */
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+  padding: 14px 22px;
+  border-radius: 14px;
+  font-weight: 900;
+  letter-spacing: 0.4px;
+  color: #0d0f1a;
+  background: linear-gradient(
+    90deg,
+    var(--accent-1),
+    var(--accent-2),
+    var(--accent-3)
+  );
+  box-shadow: 0 14px 36px rgba(0, 194, 255, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+  position: relative;
   overflow: hidden;
-  border: 5px solid var(--primary-color);
-  box-shadow: 0 0 30px var(--primary-glow);
+}
+
+.ctaButton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(255, 255, 255, 0.45) 50%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.5s ease;
+}
+.ctaButton:hover::after {
+  transform: translateX(120%);
+}
+
+.ctaButton:hover,
+.ctaButton:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 44px rgba(0, 194, 255, 0.45),
+    0 0 0 4px rgba(0, 194, 255, 0.18);
+  outline: none;
+}
+
+/* სურათის ბლოკი — ბლობის ფორმა + glow რგოლი */
+.heroImage {
+  position: relative;
+  justify-self: center;
+}
+.heroImage::before {
+  content: "";
+  position: absolute;
+  inset: -10%;
+  background: radial-gradient(
+    closest-side,
+    rgba(0, 194, 255, 0.25),
+    transparent 70%
+  );
+  filter: blur(24px);
+  z-index: 0;
 }
 
 .heroImage img {
-  width: 100%;
-  height: 100%;
+  position: relative;
+  z-index: 1;
+  width: clamp(220px, 32vw, 380px);
+  aspect-ratio: 1/1;
   object-fit: cover;
+
+  /* ბლობის ნაზი ფორმა */
+  border-radius: 36% 64% 48% 52% / 48% 42% 58% 52%;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+
+  /* მინის საწყისი */
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45),
+    0 0 0 8px rgba(255, 255, 255, 0.06), 0 0 60px rgba(229, 46, 113, 0.22);
+
+  /* ლამაზი რკალვlaşება (კვლავ მკვეთრი გამოსახულება) */
+  -webkit-mask-image: radial-gradient(
+    circle at 50% 50%,
+    #000 60%,
+    rgba(0, 0, 0, 0.85) 100%
+  );
+  mask-image: radial-gradient(
+    circle at 50% 50%,
+    #000 60%,
+    rgba(0, 0, 0, 0.85) 100%
+  );
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .heroContainer {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .heroContent {
+    margin-inline: auto;
+  }
+  .description {
+    margin-inline: auto;
+  }
+  .heroImage {
+    order: -1;
+    margin-bottom: 14px;
+  }
+}
+
+@media (max-width: 560px) {
+  .ctaButton {
+    width: 100%;
+  }
+}
+
+/* motion-სენსიტიური მომხმარებლებისთვის */
+@media (prefers-reduced-motion: reduce) {
+  .hero::before,
+  .hero::after {
+    animation: none;
+  }
+  .ctaButton::after {
+    display: none;
+  }
 }

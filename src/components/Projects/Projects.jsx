@@ -28,26 +28,46 @@ const Projects = () => {
   return (
     <section id="projects" className={styles.projects}>
       <div className="container">
-        <h2>{t("projects_title")}</h2>
+        <h2 className={styles.sectionTitle}>{t("projects_title")}</h2>
+
         <div className={styles.projectsGrid}>
           {projectData.map((project) => (
-            <a
-              href={project.link}
-              key={project.id}
-              className={styles.projectCard}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src={project.img}
-                alt={`${t("project_card_title")} ${project.id}`}
-              />
-              <div className={styles.cardOverlay}>
-                <h3>
+            <div className={styles.projectCard} key={project.id}>
+              {/* სურათი + overlay სწრაფი ნახვისათვის */}
+              <a
+                href={project.link}
+                className={styles.imageWrap}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${t("project_card_title")} ${project.id}`}
+              >
+                <img
+                  src={project.img}
+                  alt={`${t("project_card_title")} ${project.id}`}
+                  loading="lazy"
+                />
+                <div className={styles.cardOverlay}>
+                  <span className={styles.overlayTitle}>
+                    {t("project_card_title")} {project.id}
+                  </span>
+                </div>
+              </a>
+
+              {/* ქარდის ფუტერი — პატარა სახელი + View ღილაკი */}
+              <div className={styles.cardFooter}>
+                <div className={styles.cardName}>
                   {t("project_card_title")} {project.id}
-                </h3>
+                </div>
+                <a
+                  href={project.link}
+                  className={styles.viewBtn}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {t("projects_view", "View")}
+                </a>
               </div>
-            </a>
+            </div>
           ))}
         </div>
       </div>
