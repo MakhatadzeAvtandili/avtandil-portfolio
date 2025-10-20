@@ -1,0 +1,24 @@
+{
+  "translation": {
+    "name": "Avtandil Makhatadze",
+    "nav_home": "Home",
+    "nav_about": "About Me",
+    "nav_projects": "Projects",
+    "nav_contact": "Contact",
+    "hero_greeting": "Hello, I'm",
+    "hero_title": "Front-End React Developer",
+    "hero_description": "I create modern and responsive web applications with a focus on high quality and user-centric design.",
+    "hero_button": "Contact Me",
+    "about_title": "About Me",
+    "about_bio": "I am a skilled Front-End Developer with 5+ years of experience in the web technology field. My main focus is creating interactive and dynamic interfaces based on React. I constantly learn new technologies and strive to make my work as efficient, fast, and visually polished as possible. In my free time, I enjoy working on new projects and deepening my knowledge.",
+    "projects_title": "My Projects",
+    "project_card_title": "Project",
+    "contact_title": "Get In Touch",
+    "contact_form_name": "Your Name",
+    "contact_form_email": "Your Email",
+    "contact_form_message": "Message",
+    "contact_form_send": "Send Message",
+    "contact_info_title": "Other Ways",
+    "footer_text": "© 2025 Avtandil Makhatadze. All rights reserved."
+  }
+}
