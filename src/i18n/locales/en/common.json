@@ -86,5 +86,13 @@
     "backToBlog": "Back to Blog",
     "postNotFound": "Post Not Found",
     "publishedOn": "Published on"
+  },
+  "seo": {
+    "home_title": "Senior Developer & Designer",
+    "home_description": "Professional portfolio of Avtandili Makhatadze, a senior front-end developer and designer specializing in React, Tailwind CSS, and modern web technologies.",
+    "blog_title": "Blog",
+    "blog_description": "Thoughts and articles by Avtandili Makhatadze on technology, design, and professional development.",
+    "success_title": "Payment Successful",
+    "success_description": "Thank you for your purchase."
   }
 }

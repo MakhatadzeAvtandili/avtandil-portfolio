@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { postsData } from "../data/posts";
+import SEO from "../components/SEO";
 
 const BlogPage = () => {
   const { t, i18n } = useTranslation("common");
@@ -14,6 +15,10 @@ const BlogPage = () => {
       transition={{ duration: 0.3 }}
       className="grow"
     >
+      <SEO
+        title={t("seo.blog_title")}
+        description={t("seo.blog_description")}
+      />
       <div className="bg-white py-20 md:py-32">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">

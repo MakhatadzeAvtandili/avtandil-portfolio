@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link, useParams, Navigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { postsData } from "../data/posts";
+import SEO from "../components/SEO";
 
 const PostPage = () => {
   const { t, i18n } = useTranslation("common");
@@ -15,6 +16,7 @@ const PostPage = () => {
 
   const category = i18n.language === "ka" ? post.category_ka : post.category_en;
   const title = i18n.language === "ka" ? post.title_ka : post.title_en;
+  const excerpt = i18n.language === "ka" ? post.excerpt_ka : post.excerpt_en;
   const content = i18n.language === "ka" ? post.content_ka : post.content_en;
 
   return (
@@ -23,8 +25,9 @@ const PostPage = () => {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.3 }}
-      className="grow"
+      className="flex-grow"
     >
+      <SEO title={title} description={excerpt} type="article" />
       <div className="bg-white py-20 md:py-32">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">

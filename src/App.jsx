@@ -1,5 +1,7 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
+import { useTranslation } from "react-i18next";
+import SEO from "./components/SEO";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -14,9 +16,14 @@ import PostPage from "./pages/PostPage";
 
 function App() {
   const location = useLocation();
+  const { t } = useTranslation("common");
 
   const LandingPage = () => (
     <>
+      <SEO
+        title={t("seo.home_title")}
+        description={t("seo.home_description")}
+      />
       <main>
         <Hero />
         <About />
@@ -24,7 +31,6 @@ function App() {
         <Skills />
         <Contact />
       </main>
-      <Footer />
     </>
   );
 
@@ -36,14 +42,19 @@ function App() {
       </div>
 
       <Header />
-      <AnimatePresence mode="wait">
-        <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/success" element={<Success />} />
-          <Route path="/blog" element={<BlogPage />} />
-          <Route path="/blog/:slug" element={<PostPage />} />
-        </Routes>
-      </AnimatePresence>
+
+      <div className="grow">
+        <AnimatePresence mode="wait">
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/success" element={<Success />} />
+            <Route path="/blog" element={<BlogPage />} />
+            <Route path="/blog/:slug" element={<PostPage />} />
+          </Routes>
+        </AnimatePresence>
+      </div>
+
+      <Footer />
     </div>
   );
 }
