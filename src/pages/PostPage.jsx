@@ -28,7 +28,6 @@ const PostPage = () => {
       <div className="bg-white py-20 md:py-32">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
-            {/* Back Button */}
             <div className="mb-8">
               <Link
                 to="/blog"
@@ -53,7 +52,6 @@ const PostPage = () => {
               </Link>
             </div>
 
-            {/* Post Header */}
             <div className="text-center mb-12">
               <span className="text-primary font-semibold">{category}</span>
               <h1 className="mt-4 text-4xl md:text-5xl font-bold text-text-primary">
@@ -64,7 +62,6 @@ const PostPage = () => {
               </p>
             </div>
 
-            {/* Post Content */}
             <div className="prose prose-lg lg:prose-xl max-w-none text-text-secondary text-lg leading-relaxed space-y-6">
               {content.map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>
