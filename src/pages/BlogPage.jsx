@@ -30,8 +30,8 @@ const BlogPage = () => {
             </p>
           </div>
 
-          <div className="mt-16 max-w-3xl mx-auto space-y-12">
-            {postsData.map((post) => {
+          <div className="mt-16 max-w-3xl mx-auto space-y-16">
+            {postsData.map((post, index) => {
               const category =
                 i18n.language === "ka" ? post.category_ka : post.category_en;
               const title =
@@ -44,10 +44,17 @@ const BlogPage = () => {
                   key={post.id}
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.5 }}
-                  transition={{ duration: 0.5 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  <div className="p-8 border border-border rounded-xl shadow-sm hover:shadow-lg transition-shadow group">
+                  <Link to={`/blog/${post.slug}`} className="block group">
+                    <div className="overflow-hidden rounded-xl border border-border mb-6 shadow-sm group-hover:shadow-lg transition-shadow">
+                      <img
+                        src={post.coverImage}
+                        alt={title}
+                        className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                    </div>
                     <div className="flex items-center gap-4 text-sm text-text-secondary">
                       <span className="font-semibold text-primary">
                         {category}
@@ -55,16 +62,13 @@ const BlogPage = () => {
                       <span>&bull;</span>
                       <span>{post.date}</span>
                     </div>
-                    <h2 className="mt-4 text-2xl font-bold text-text-primary">
+                    <h2 className="mt-3 text-3xl font-bold text-text-primary group-hover:text-primary transition-colors">
                       {title}
                     </h2>
-                    <p className="mt-3 text-text-secondary leading-relaxed">
+                    <p className="mt-3 text-lg text-text-secondary leading-relaxed">
                       {excerpt}
                     </p>
-                    <Link
-                      to={`/blog/${post.slug}`}
-                      className="mt-6 inline-flex items-center text-primary font-semibold group-hover:underline"
-                    >
+                    <div className="mt-6 inline-flex items-center text-primary font-semibold">
                       {t("blog.readMore")}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -81,8 +85,8 @@ const BlogPage = () => {
                         <line x1="5" y1="12" x2="19" y2="12"></line>
                         <polyline points="12 5 19 12 12 19"></polyline>
                       </svg>
-                    </Link>
-                  </div>
+                    </div>
+                  </Link>
                 </motion.div>
               );
             })}

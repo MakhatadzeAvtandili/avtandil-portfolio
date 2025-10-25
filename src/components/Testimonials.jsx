@@ -85,7 +85,7 @@ const Testimonials = () => {
 
           <button
             onClick={prevTestimonial}
-            className="absolute top-1/2 -left-4 md:-left-16 -translate-y-1/2 bg-white border border-border rounded-full p-3 shadow-md hover:bg-gray-100 transition-colors"
+            className="absolute top-1/2 -left-4 md:-left-16 md:max-[850px]:left-2! -translate-y-1/2 bg-white border border-border rounded-full p-3 md:max-[850px]:p-2 shadow-md hover:bg-gray-100 transition-colors"
             aria-label="Previous testimonial"
           >
             <svg
@@ -106,7 +106,7 @@ const Testimonials = () => {
 
           <button
             onClick={nextTestimonial}
-            className="absolute top-1/2 -right-4 md:-right-16 -translate-y-1/2 bg-white border border-border rounded-full p-3 shadow-md hover:bg-gray-100 transition-colors"
+            className="absolute top-1/2 -right-4 md:-right-16 md:max-[850px]:right-2! -translate-y-1/2 bg-white border border-border rounded-full p-3 md:max-[850px]:p-2 shadow-md hover:bg-gray-100 transition-colors"
             aria-label="Next testimonial"
           >
             <svg

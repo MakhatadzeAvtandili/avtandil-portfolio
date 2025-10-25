@@ -1,8 +1,8 @@
-// პროექტების მონაცემები ორენოვანი სისტემით
 export const postsData = [
   {
     id: 1,
     slug: "my-journey-to-react",
+    coverImage: "/blogposts/post1.jpg",
     date: "October 24, 2025",
     category_en: "Development",
     category_ka: "დეველოპმენტი",
@@ -26,6 +26,7 @@ export const postsData = [
   {
     id: 2,
     slug: "why-tailwind-css-is-a-game-changer",
+    coverImage: "/blogposts/post2.jpg",
     date: "October 20, 2025",
     category_en: "Design",
     category_ka: "დიზაინი",
@@ -44,6 +45,30 @@ export const postsData = [
       'ვაღიარებ, თავიდან სკეპტიკურად ვიყავი განწყობილი Tailwind CSS-ის მიმართ. "ეს უბრალოდ inline სტილები არ არის?" - ვფიქრობდი. მაგრამ მას შემდეგ, რაც რეალურ პროექტზე ვცადე, სრულიად შევიცვალე აზრი. Tailwind არ არის HTML-ში CSS-ის წერა; ეს არის წინასწარ განსაზღვრული, შეზღუდვებზე დაფუძნებული დიზაინ-სისტემის პირდაპირ მარკაპში გამოყენება.',
       "ყველაზე დიდი მოგება სიჩქარეა. აღარ გიწევს მუდმივი გადართვა `.jsx` და `.css` ფაილებს შორის. აღარ გიწევს ფიქრი კლასების სახელებზე, როგორიცაა `.user-profile-card-header-title`. შენ უბრალოდ აწყობ. Tailwind-ის კონფიგურაციის ფაილით განსაზღვრული შეზღუდვები ასევე უზრუნველყოფს დიზაინის თანმიმდევრულობას მთელი აპლიკაციის მასშტაბით.",
       "ამასთან, მისი JIT (Just-In-Time) ძრავა წარმოუდგენლად სწრაფია და აგენერირებს მხოლოდ იმ CSS-ს, რომელსაც რეალურად იყენებ, რაც წარმოების (production) პატარა ზომის ფაილებს გვაძლევს. როდესაც ის React-ის მსგავს კომპონენტებზე დაფუძნებულ ფრეიმვორკებთან ერთიანდება, ის ქმნის დეველოპმენტის გამოცდილებას, რომელიც უბრალოდ შეუდარებელია სიჩქარითა და შენარჩუნებადობით.",
+    ],
+  },
+  {
+    id: 3,
+    slug: "freelancing-vs-full-time",
+    coverImage: "/blogposts/post3.jpg",
+    date: "October 15, 2025",
+    category_en: "Career",
+    category_ka: "კარიერა",
+    title_en: "Freelancing vs. Full-Time: My Experience",
+    title_ka: "ფრილანსი vs. სრული განაკვეთი: ჩემი გამოცდილება",
+    excerpt_en:
+      "Pros and cons of both worlds, and how to choose what's right for you.",
+    excerpt_ka:
+      "ორივე სამყაროს დადებითი და უარყოფითი მხარეები და როგორ ავირჩიოთ ის, რაც თქვენთვის შესაფერისია.",
+    content_en: [
+      "Choosing between freelancing and a full-time job is a significant career decision. I've experienced both, and each path offers unique advantages and challenges. Full-time roles often provide stability, benefits, and structured team environments. You get to focus deeply on one product or system.",
+      "Freelancing, on the other hand, offers unparalleled flexibility, autonomy, and the potential for higher earnings. You choose your projects, set your hours, and are essentially your own boss. However, it also comes with the responsibility of finding clients, managing finances, and dealing with inconsistent income.",
+      'Ultimately, the "right" choice depends on your personality, priorities, and risk tolerance. There\'s no single answer. I found a hybrid approach works best for me, balancing contract work with personal projects. Reflect on what truly motivates you and what kind of work-life balance you seek.',
+    ],
+    content_ka: [
+      "ფრილანსსა და სრულ განაკვეთზე მუშაობას შორის არჩევანის გაკეთება მნიშვნელოვანი კარიერული გადაწყვეტილებაა. მე ორივე გამოვცადე და თითოეული გზა უნიკალურ უპირატესობებსა და გამოწვევებს გვთავაზობს. სრული განაკვეთის პოზიციები ხშირად უზრუნველყოფს სტაბილურობას, ბენეფიტებს და სტრუქტურირებულ გუნდურ გარემოს. თქვენ საშუალება გეძლევათ, ღრმად ფოკუსირდეთ ერთ პროდუქტზე ან სისტემაზე.",
+      "მეორეს მხრივ, ფრილანსი გვთავაზობს შეუდარებელ მოქნილობას, ავტონომიას და უფრო მაღალი შემოსავლის პოტენციალს. თქვენ თავად ირჩევთ პროექტებს, განსაზღვრავთ სამუშაო საათებს და, არსებითად, საკუთარი თავის უფროსი ხართ. თუმცა, მას თან ახლავს კლიენტების მოძიების, ფინანსების მართვისა და არასტაბილური შემოსავლის გამოწვევები.",
+      '"სწორი" არჩევანი საბოლოოდ დამოკიდებულია თქვენს პიროვნებაზე, პრიორიტეტებსა და რისკისადმი ტოლერანტობაზე. ერთადერთი პასუხი არ არსებობს. მე აღმოვაჩინე, რომ ჰიბრიდული მიდგომა საუკეთესოდ მუშაობს ჩემთვის, კონტრაქტული სამუშაოსა და პირადი პროექტების დაბალანსებით. დაფიქრდით იმაზე, თუ რა გაძლევთ ნამდვილ მოტივაციას და როგორი სამუშაო-ცხოვრების ბალანსისკენ ისწრაფვით.',
     ],
   },
 ];

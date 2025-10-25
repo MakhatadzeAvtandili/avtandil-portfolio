@@ -36,27 +36,31 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 flex items-center"
+      className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 flex items-center
+                 max-[375px]:px-3 max-[375px]:py-10"
     >
       <motion.div
         variants={container}
         initial="hidden"
         animate="visible"
-        className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center w-full"
+        className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center w-full
+                   max-[375px]:gap-8"
       >
         <div className="text-center lg:text-left">
           <motion.h1
             variants={item}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-text-primary"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-text-primary
+                       max-[375px]:text-3xl"
           >
             {t("hero.name")}
           </motion.h1>
           <motion.div
             variants={item}
-            className="mt-4 text-2xl md:text-3xl font-semibold flex items-center justify-center lg:justify-start gap-3"
+            className="mt-4 text-2xl md:text-3xl font-semibold flex items-center justify-center lg:justify-start gap-3
+                       max-[375px]:text-xl max-[375px]:gap-2"
           >
             <span className="text-text-secondary">{t("hero.ima")}</span>
-            <span className="text-primary h-10 overflow-hidden">
+            <span className="text-primary h-10 overflow-hidden max-[375px]:h-8">
               <AnimatePresence mode="wait">
                 <motion.span
                   key={roles[roleIndex]}
@@ -73,23 +77,27 @@ const Hero = () => {
           </motion.div>
           <motion.p
             variants={item}
-            className="mt-6 max-w-xl mx-auto lg:mx-0 text-lg text-text-secondary leading-relaxed"
+            className="mt-6 max-w-xl mx-auto lg:mx-0 text-lg text-text-secondary leading-relaxed
+                       max-[375px]:mt-4 max-[375px]:text-base"
           >
             {t("hero.intro2")} {t("hero.intro3")} {t("hero.intro4")}
           </motion.p>
           <motion.div
             variants={item}
-            className="mt-8 flex justify-center lg:justify-start gap-4"
+            className="mt-8 flex justify-center lg:justify-start gap-4
+                       max-[375px]:mt-6 max-[375px]:gap-3"
           >
             <a
               href="#contact"
-              className="px-8 py-3 bg-primary text-white font-semibold rounded-lg shadow-lg hover:bg-teal-600 transition-transform transform hover:scale-105"
+              className="px-8 py-3 bg-primary text-white font-semibold rounded-lg shadow-lg hover:bg-teal-600 transition-transform transform hover:scale-105
+                         max-[375px]:px-5 max-[375px]:py-2 max-[375px]:text-sm"
             >
               {t("contact.title")}
             </a>
             <a
               href="#projects"
-              className="px-8 py-3 bg-gray-200 text-text-primary font-semibold rounded-lg hover:bg-gray-300 transition-colors"
+              className="px-8 py-3 bg-gray-200 text-text-primary font-semibold rounded-lg hover:bg-gray-300 transition-colors
+                         max-[375px]:px-5 max-[375px]:py-2 max-[375px]:text-sm"
             >
               {t("projects.view")}
             </a>
@@ -97,7 +105,10 @@ const Hero = () => {
         </div>
 
         <motion.div variants={item} className="flex justify-center">
-          <div className="relative w-[400px] h-[400px] md:w-[500px] md:h-[500px]">
+          <div
+            className="relative w-[400px] h-[400px] md:w-[500px] md:h-[500px]
+                          max-[375px]:w-[260px] max-[375px]:h-[260px]"
+          >
             <div
               className="absolute inset-0 bg-linear-to-br from-primary to-secondary rounded-full"
               style={{ filter: "blur(30px)", opacity: 0.6 }}

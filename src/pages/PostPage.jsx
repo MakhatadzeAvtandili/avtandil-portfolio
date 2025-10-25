@@ -27,8 +27,13 @@ const PostPage = () => {
       transition={{ duration: 0.3 }}
       className="grow"
     >
-      <SEO title={title} description={excerpt} type="article" />
-      <div className="bg-white py-20 md:py-32">
+      <SEO
+        title={title}
+        description={excerpt}
+        type="article"
+        ogImage={post.coverImage}
+      />
+      <div className="bg-white pt-16 pb-20 md:pt-24 md:pb-32">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <div className="mb-8">
@@ -55,9 +60,9 @@ const PostPage = () => {
               </Link>
             </div>
 
-            <div className="text-center mb-12">
+            <div className="mb-12">
               <span className="text-primary font-semibold">{category}</span>
-              <h1 className="mt-4 text-4xl md:text-5xl font-bold text-text-primary">
+              <h1 className="mt-4 text-4xl md:text-5xl font-bold text-text-primary leading-tight">
                 {title}
               </h1>
               <p className="mt-4 text-text-secondary">
@@ -65,11 +70,19 @@ const PostPage = () => {
               </p>
             </div>
 
-            <div className="prose prose-lg lg:prose-xl max-w-none text-text-secondary text-lg leading-relaxed space-y-6">
+            <div className="mb-12 rounded-xl overflow-hidden shadow-lg border border-border">
+              <img
+                src={post.coverImage}
+                alt={title}
+                className="w-full h-auto object-cover"
+              />
+            </div>
+
+            <article className="prose prose-lg lg:prose-xl max-w-none text-text-secondary prose-headings:text-text-primary prose-a:text-primary hover:prose-a:text-teal-700 prose-strong:text-text-primary">
               {content.map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>
               ))}
-            </div>
+            </article>
           </div>
         </div>
       </div>

@@ -54,7 +54,6 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isHomePage, location.pathname]);
 
-  // If we land on "/" with a hash, auto-scroll smoothly.
   useEffect(() => {
     if (isHomePage && location.hash) {
       const id = location.hash.slice(1);
@@ -122,7 +121,6 @@ const Header = () => {
           end
           className="relative text-lg font-medium text-text-secondary hover:text-primary transition-colors"
           onClick={(e) => {
-            // Close menu and force navigate as a safety fallback
             setIsOpen(false);
             if (location.pathname !== link.href) {
               e.preventDefault();
@@ -168,23 +166,26 @@ const Header = () => {
         <div className="flex items-center justify-between h-20">
           <Link
             to="/"
-            className="text-2xl font-bold tracking-tight text-text-primary"
+            className="text-2xl font-bold tracking-tight text-text-primary min-[768px]:max-[1024px]:text-[15px]"
             onClick={() => setIsOpen(false)}
           >
-            Avtandili<span className="text-primary">.</span>
+            Avtandili
+            <span className="text-primary min-[768px]:max-[1024px]:text-[15px]">
+              .
+            </span>
           </Link>
 
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-8 min-[768px]:max-[1024px]:[&_a.relative]:text-[15px] min-[768px]:max-[1024px]:[&_button.relative]:text-[15px] min-[768px]:max-[1024px]:space-x-5">
             {navLinks.map((link) => (
               <div key={link.href}>{renderNavLink(link)}</div>
             ))}
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-2 ">
               <button
                 onClick={() => changeLanguage("en")}
-                className={`px-3 py-1 text-sm font-semibold rounded-md transition-colors ${
+                className={`px-3 py-1 text-sm font-semibold rounded-md transition-colors  ${
                   i18n.language === "en"
                     ? "bg-primary text-white"
-                    : "text-text-secondary hover:bg-gray-100"
+                    : "text-text-secondary hover:bg-gray-100 min-[768px]:max-[1024px]:text-[12px]"
                 }`}
               >
                 EN
@@ -194,7 +195,7 @@ const Header = () => {
                 className={`px-3 py-1 text-sm font-semibold rounded-md transition-colors ${
                   i18n.language === "ka"
                     ? "bg-primary text-white"
-                    : "text-text-secondary hover:bg-gray-100"
+                    : "text-text-secondary hover:bg-gray-100 min-[768px]:max-[1024px]:text-[12px]"
                 }`}
               >
                 KA
@@ -221,7 +222,6 @@ const Header = () => {
             className="md:hidden bg-white/95 backdrop-blur-sm absolute top-full left-0 w-full shadow-lg z-90"
           >
             <nav className="flex flex-col items-center space-y-6 py-8">
-              {/* no wrapper onClick here; each link closes the menu itself */}
               {navLinks.map((link) => (
                 <div key={link.href}>{renderNavLink(link)}</div>
               ))}
