@@ -6,7 +6,8 @@
     "en": "EN",
     "contact": "Contact",
     "logo": "Avtandili",
-    "blog": "Blog"
+    "blog": "Blog",
+    "testimonials": "Testimonials"
   },
   "hero": {
     "ima": "I'm a",
@@ -94,5 +95,9 @@
     "blog_description": "Thoughts and articles by Avtandili Makhatadze on technology, design, and professional development.",
     "success_title": "Payment Successful",
     "success_description": "Thank you for your purchase."
+  },
+  "testimonials": {
+    "title": "What My Clients Say",
+    "subtitle": "Real feedback from people I've had the pleasure to work with."
   }
 }

@@ -29,7 +29,14 @@ const Header = () => {
         return;
       }
 
-      const sections = ["hero", "workflow", "projects", "skills", "contact"];
+      const sections = [
+        "hero",
+        "workflow",
+        "projects",
+        "skills",
+        "testimonials",
+        "contact",
+      ];
       const current = sections.find((id) => {
         const el = document.getElementById(id);
         if (el) {
@@ -58,6 +65,12 @@ const Header = () => {
       label: t("header.projects"),
       type: "section",
       id: "projects",
+    },
+    {
+      href: "#testimonials",
+      label: t("header.testimonials"),
+      type: "section",
+      id: "testimonials",
     },
     {
       href: "#contact",
