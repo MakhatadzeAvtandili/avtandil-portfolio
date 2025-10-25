@@ -1,0 +1,14 @@
+@font-face {
+  font-family: "basic";
+  src: url("../fonts/BerkshireSwash-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "secondary";
+  src: url("../fonts/Rancho-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "addon";
+  src: url("../fonts/Lato-Regular.ttf") format("truetype");
+}

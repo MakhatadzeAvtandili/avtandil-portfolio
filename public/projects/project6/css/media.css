@@ -1,0 +1,140 @@
+@media only screen and (max-width: 2500px) {
+  .product-box {
+    width: 19% !important;
+  }
+}
+
+@media only screen and (max-width: 1980px) {
+  .product-box {
+    width: 23.8727% !important;
+  }
+}
+
+@media only screen and (max-width: 1750px) {
+  main,
+  .full-container {
+    width: 75% !important;
+  }
+
+  .title-img {
+    width: 30% !important;
+  }
+
+  .price-filter {
+    width: 55% !important;
+  }
+}
+
+@media only screen and (max-width: 1580px) {
+  .for-hidden {
+    display: none !important;
+  }
+
+  .for-show {
+    display: flex !important;
+  }
+
+  .cat-box {
+    width: 29% !important;
+    margin-bottom: 1rem !important;
+    justify-content: center !important;
+  }
+
+  .cat-box img {
+    margin-right: 1rem !important;
+  }
+}
+
+@media only screen and (max-width: 1350px) {
+  main,
+  .full-container {
+    width: 80% !important;
+  }
+
+  .title-img {
+    width: 100% !important;
+  }
+
+  .price-filter {
+    width: 70% !important;
+    margin-top: 1rem !important;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .product-box {
+    width: 49% !important;
+  }
+  .price-filter {
+    width: 100% !important;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  html {
+    font-size: 10px !important;
+  }
+  .parameters {
+    width: 98% !important;
+    justify-content: space-between;
+  }
+
+  .price {
+    justify-content: space-between !important;
+  }
+
+  .price-filter {
+    flex-wrap: wrap !important;
+  }
+
+  .cat-box {
+    width: 49% !important;
+    justify-content: start !important;
+  }
+
+  .price-filter button {
+    width: 49% !important;
+    margin-top: 0.5rem !important;
+  }
+
+  #allview {
+    background-color: rgb(247, 247, 247) !important;
+    border-radius: 15px !important;
+    padding: 1rem !important;
+  }
+}
+
+@media only screen and (max-width: 570px) {
+  html {
+    font-size: 15px !important;
+  }
+
+  .product-box {
+    width: 98% !important;
+    margin: auto !important;
+  }
+
+  .cat-box {
+    width: 100% !important;
+    justify-content: start !important;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  main,
+  .full-container {
+    width: 98% !important;
+  }
+
+  .price-filter input {
+    width: 49% !important;
+  }
+
+  .display-none {
+    display: none !important;
+  }
+
+  #allview {
+    padding: 0.4rem !important;
+  }
+}

@@ -1,0 +1,464 @@
+@import url("../css/colors.css");
+@import url("../css/fonts.css");
+@import url("../css/img.css");
+@import url("../css/media.css");
+@import url("./animation.css");
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+  height: 100%;
+  background-color: white;
+}
+
+body {
+  font-family: "basic";
+  overflow-x: hidden;
+}
+
+/* header */
+
+header {
+  font-size: 2.444rem;
+}
+
+.header,
+.header ul,
+.header .search,
+.slide,
+.categories,
+.products,
+.header ul .chat-li,
+.header .search,
+.slide .box,
+.slide .box-1,
+.product-box .box .top,
+.product-box .box .title-price,
+.bottom-slide {
+  display: flex;
+}
+
+.header,
+.main {
+  width: 93.518%;
+  margin: auto;
+}
+
+.header {
+  padding: 4rem 0rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header p {
+  width: 24.39%;
+}
+
+.header ul {
+  width: 24.39%;
+  justify-content: space-between;
+  list-style: none;
+  align-items: center;
+}
+
+.header ul li {
+  width: 25%;
+  text-align: end;
+}
+
+.header ul li:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.header ul .chat-li {
+  justify-content: end;
+}
+
+.header ul .chat {
+  width: 7.11rem;
+  height: 7.11rem;
+  border: 0.333rem solid red;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 50%;
+  border-radius: 50%;
+}
+
+.header .search {
+  width: 36.63%;
+  justify-content: end;
+  border: 1px solid #00000029;
+  border-radius: 3.556rem;
+  box-shadow: 0px 0px 8.89px 0px #00000029;
+}
+
+.search input {
+  outline: none;
+  border: none;
+  padding: 1.95rem 0rem;
+  padding-left: 3rem;
+  width: 78.379%;
+  border-radius: 3.556rem;
+  font-size: 2.667rem;
+}
+
+.header .search input::placeholder {
+  font-size: 2.667rem;
+}
+
+.search-icon,
+.header ul .chat {
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.header .search .search-icon {
+  width: 21.621%;
+  background-color: #4d455d;
+  border-radius: 3.556rem;
+  background-size: 25%;
+}
+
+.header .search .search-icon:hover {
+  cursor: pointer;
+}
+
+/* header */
+
+/* main */
+/* slide */
+
+.slide {
+  width: 100%;
+  justify-content: start;
+  flex-wrap: wrap;
+  border-radius: 3.556rem;
+  margin: auto;
+}
+
+header .material-symbols-outlined {
+  display: none;
+}
+
+.slide .box {
+  justify-content: center;
+}
+
+.slide .box-1 {
+  width: 49%;
+  align-items: center;
+}
+
+.slide .box-1 .text {
+  width: 74.106%;
+  margin-left: 6rem;
+}
+
+.slide .box-1 p {
+  font-family: "secondary";
+  font-size: 7.964rem;
+}
+
+.slide .box-1 button {
+  width: 43.62%;
+  font-family: "basic";
+  font-size: 2.667rem;
+  border: none;
+  border-radius: 1.778rem;
+  padding: 2.35rem 0rem;
+  margin-top: 6rem;
+}
+
+.slide .box-1 button:hover {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
+
+.slide .box-2 {
+  width: 25.7%;
+}
+.slide .box-3 {
+  width: 25.3%;
+  border-top-right-radius: 3.556rem;
+  border-bottom-right-radius: 3.556rem;
+}
+/* slide */
+
+/* browse categories */
+.browse-categories {
+  font-size: 4.44rem;
+  text-align: center;
+  margin-top: 7rem;
+}
+/* browse categories */
+
+/* Categories */
+.categories {
+  justify-content: space-between;
+  margin: 6rem auto;
+  flex-wrap: wrap;
+}
+
+.categories .categories-box {
+  width: 21.286%;
+  font-size: 2.44rem;
+  text-align: center;
+  padding: 2.944rem 0rem;
+  box-shadow: 0px 0px 45px 0px rgba(0, 0, 0, 0.233);
+}
+
+.categories .categories-box:hover {
+  background-color: #f2405c;
+  cursor: pointer;
+  color: white;
+  border-radius: 1.778rem;
+  box-shadow: 0px 0px 45px 0px rgba(255, 0, 0, 0.233);
+}
+
+.category-select {
+  width: 90%;
+  margin: auto;
+  display: flex;
+}
+
+.category-select select {
+  width: 100%;
+  text-align: center;
+  margin: 2rem auto;
+  font-size: 3rem;
+  font-family: "addon";
+  font-weight: 800;
+  appearance: none;
+  padding: 2rem;
+  border: none;
+  border-radius: 3rem;
+  outline: none;
+  background-color: #f2405c;
+  box-shadow: 0px 0px 45px 0px rgba(255, 0, 0, 0.233);
+  color: white;
+}
+
+/* Categories */
+
+/* products */
+.result {
+  font-size: 3.556rem;
+  margin-bottom: 3.4rem;
+}
+
+.products {
+  width: 100%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.product-box {
+  width: 32.363%;
+  border-radius: 3.556rem;
+  box-shadow: 0px 0px 45px rgba(0, 0, 0, 0.233);
+}
+
+.product-box .box {
+  width: 93.88%;
+  margin: auto;
+  padding: 2rem 0rem;
+}
+
+.product-box .box .top {
+  width: 100%;
+  height: 35.111rem;
+  justify-content: center;
+  padding-top: 3rem;
+  border-top-left-radius: 2.667rem;
+  border-top-right-radius: 2.667rem;
+  position: relative;
+}
+
+.product-box .box .top .heart {
+  position: absolute;
+  right: 3rem;
+  top: 3rem;
+}
+
+.product-box .box .title-price {
+  justify-content: space-between;
+  font-size: 3.556rem;
+}
+
+.product-box .box .title-price .price {
+  font-family: "addon";
+  font-weight: 900;
+  color: red;
+}
+
+.product-box .box .description {
+  font-family: "addon";
+  font-size: 2.667rem;
+  margin: 1.6rem 0rem;
+}
+
+.product-box .box button {
+  width: 100%;
+  padding: 2.35rem 0rem;
+  border-radius: 1.778rem;
+  font-family: "basic";
+  font-size: 2.667rem;
+  border: none;
+  margin: 2rem auto;
+}
+
+.product-box .box button:hover {
+  background-color: #ff9100;
+  cursor: pointer;
+  box-shadow: 0px 0px 45px 0px #ff910073;
+}
+
+/* products */
+
+/* Bottom Slide */
+
+.bottom-slide {
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 30rem;
+  justify-content: space-between;
+  border-radius: 3.556rem;
+  box-shadow: 0px 0px 45px rgba(0, 0, 0, 0.233);
+}
+
+.right-box,
+.left-box,
+.text-box {
+  width: 33.333%;
+  padding: 8rem 0rem;
+  align-items: center;
+}
+
+.right-box {
+  border-top-right-radius: 3.556rem;
+  border-bottom-right-radius: 3.556rem;
+}
+
+.left-box {
+  border-top-left-radius: 3.556rem;
+  border-bottom-left-radius: 3.556rem;
+}
+
+.absolute-box {
+  position: relative;
+  width: 27.556rem;
+  height: 27.556rem;
+  border-radius: 3.556rem;
+  animation: absolute-box-animation 2s ease infinite;
+}
+
+.absolute-left {
+  bottom: 60%;
+  left: 10%;
+}
+
+.absolute-right {
+  top: 75%;
+  left: 45%;
+}
+
+.absolute-box .discount {
+  border-radius: 1.778rem;
+  font-size: 2.667rem;
+  font-weight: 800;
+  width: 27.556rem;
+  padding: 2.611rem 0rem;
+  position: absolute;
+  font-family: "addon";
+  text-align: center;
+}
+
+.right-img,
+.left-img {
+  position: absolute;
+}
+
+.discount-left {
+  bottom: -20%;
+  left: 15%;
+}
+
+.left-img {
+  right: -20%;
+  top: 10%;
+}
+
+.discount-right {
+  right: -15%;
+  top: -22%;
+  box-shadow: 0px 0px 45px rgba(0, 0, 0, 0.233);
+}
+
+.right-img {
+  left: -20%;
+  bottom: -15%;
+}
+
+.text-box {
+  text-align: center;
+}
+
+.text-box .texts {
+  width: 103.9rem;
+  z-index: 2;
+  position: relative;
+  transform: translate(-25%);
+}
+
+.text-box .texts span {
+  font-family: "addon";
+  font-size: 2.5rem;
+  font-weight: 900;
+  letter-spacing: 0.5rem;
+}
+
+.text-box .texts p {
+  font-size: 17.748rem;
+}
+
+.text-box .middle-img {
+  margin: auto;
+  z-index: 3;
+  position: absolute;
+  transform: translate(-50%, -60%);
+}
+/* Bottom Slide */
+
+/* footer */
+footer {
+  text-align: center;
+  font-size: 2.667rem;
+  font-weight: 700;
+  font-family: "addon";
+  margin-top: 20rem;
+  padding: 10rem 0rem;
+}
+/* footer */
+
+.d-none {
+  display: none;
+}
+
+.chat-buble {
+  display: none;
+  width: 10rem;
+  height: 8.3rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  position: fixed;
+  right: 35px;
+  bottom: 20px;
+}

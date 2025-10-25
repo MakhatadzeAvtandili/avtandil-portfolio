@@ -1,0 +1,269 @@
+@media only screen and (max-width: 2500px) {
+  html {
+    font-size: 12px !important;
+  }
+}
+
+@media only screen and (max-width: 2050px) {
+  html {
+    font-size: 10px !important;
+  }
+}
+
+@media only screen and (max-width: 1900px) {
+  .absolute-left {
+    left: -15% !important;
+  }
+}
+
+@media only screen and (max-width: 1600px) {
+  .bottom-slide .text-box {
+    scale: 0.5;
+    z-index: 5;
+  }
+
+  .slide .box-1 .text {
+    width: 90% !important;
+  }
+
+  .absolute-left {
+    bottom: 60%;
+    left: 20% !important;
+  }
+
+  .absolute-right {
+    top: 60% !important;
+    left: 20% !important;
+  }
+}
+
+@media only screen and (max-width: 1440px) {
+  .slide .box-1 {
+    width: 100% !important;
+    padding: 4rem 0rem !important;
+    text-align: center;
+  }
+  .slide .box-2,
+  .slide .box-3 {
+    width: 50% !important;
+  }
+
+  .slide .box-3 {
+    border-top-right-radius: 0px !important;
+  }
+
+  .slide .box-2 {
+    border-bottom-left-radius: 3.556rem;
+  }
+
+  .slide .box-1 .text {
+    margin: auto !important;
+  }
+
+  .categories .categories-box {
+    width: 20% !important;
+  }
+
+  header ul {
+    width: 30% !important;
+  }
+
+  .bottom-slide {
+    margin: 8rem auto !important;
+  }
+}
+
+@media only screen and (max-width: 1150px) {
+  .header ul {
+    display: none !important;
+  }
+
+  header .material-symbols-outlined {
+    display: block !important;
+    font-size: 5rem !important;
+  }
+
+  .search {
+    width: 60% !important;
+  }
+
+  .header p {
+    width: 20% !important;
+  }
+
+  .product-box {
+    width: 49% !important;
+    margin-bottom: 3rem;
+  }
+
+  .product-box-3 {
+    width: 100% !important;
+  }
+
+  .main .chat-buble {
+    display: block !important;
+  }
+
+  .bottom-slide {
+    justify-content: space-around !important;
+  }
+
+  .right-box,
+  .left-box {
+    width: 47% !important;
+    margin-bottom: 1rem !important;
+    border-radius: 2.5rem !important;
+  }
+
+  .text-box {
+    order: -1 !important;
+    width: 100% !important;
+  }
+  .text-box .texts {
+    transform: translate(0%, -40%) !important;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .categories .categories-box {
+    width: 22% !important;
+    font-size: 2rem !important;
+    padding: 2rem 0rem !important;
+  }
+
+  .product-box {
+    width: 100% !important;
+    margin-bottom: 3rem;
+  }
+
+  .chat-buble {
+    right: 15px !important;
+    bottom: 15px !important;
+  }
+
+  .right-box,
+  .left-box {
+    width: 100% !important;
+    border-radius: 2.5rem !important;
+    padding: 4rem !important;
+  }
+
+  .text-box .texts {
+    transform: translate(-30%, -40%) !important;
+    scale: 0.8 !important;
+  }
+
+  .absolute-left {
+    bottom: 35% !important;
+    left: 0% !important;
+    scale: 0.8 !important;
+  }
+
+  .absolute-right {
+    top: 35% !important;
+    left: 50% !important;
+    scale: 0.8 !important;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  html {
+    font-size: 7px !important;
+  }
+
+  header .header {
+    flex-wrap: wrap !important;
+  }
+
+  .search {
+    order: 2;
+    width: 100% !important;
+    margin-top: 2rem !important;
+  }
+
+  .slide .slidebox {
+    width: 100% !important;
+  }
+
+  .slide .box-1 button {
+    width: 60% !important;
+  }
+
+  .slide .box-2 {
+    border-radius: 0px !important;
+  }
+
+  .slide .box-3 {
+    border-bottom-left-radius: 3.556rem !important;
+  }
+
+  .categories .categories-box {
+    width: 24% !important;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .absolute-left {
+    bottom: 10% !important;
+    left: 20% !important;
+    background: none !important;
+  }
+
+  .absolute-right {
+    top: 10% !important;
+    left: 20% !important;
+    background: none !important;
+  }
+
+  .text-box .texts {
+    transform: translate(-45%, -40%) !important;
+    scale: 0.7 !important;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  html {
+    font-size: 6px !important;
+  }
+
+  .slide .box-2,
+  .slide .box-3 {
+    display: none !important;
+  }
+
+  .slide .box-1 button {
+    width: 80% !important;
+  }
+
+  .categories {
+    display: none !important;
+  }
+
+  .category-select {
+    display: block !important;
+  }
+
+  .slide .box-1 p {
+    font-family: "secondary";
+    font-size: 5rem !important;
+  }
+
+  .bottom-slide {
+    display: none !important;
+  }
+
+  footer {
+    margin-top: 1rem !important;
+  }
+}
+
+@media only screen and (max-width: 200px) {
+  html {
+    font-size: 5px !important;
+  }
+
+  .slide .box-1 p {
+    font-family: "secondary";
+    font-size: 4rem !important;
+  }
+}

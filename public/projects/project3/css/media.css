@@ -1,0 +1,462 @@
+@media only screen and (max-width: 2250px) {
+  .slide-2 {
+    padding: 30rem 0rem !important;
+  }
+
+  .slide .text {
+    width: 50% !important;
+  }
+}
+
+@media only screen and (max-width: 2000px) {
+  .slide-2 {
+    padding: 25rem 0rem !important;
+  }
+}
+
+@media only screen and (max-width: 1650px) {
+  .collections ul {
+    width: 50% !important;
+  }
+
+  .slide-2 {
+    padding: 15rem 0rem !important;
+  }
+}
+
+@media only screen and (max-width: 1440px) {
+  .announce,
+  main,
+  footer {
+    width: 100% !important;
+  }
+
+  header {
+    width: 98% !important;
+    margin: auto;
+  }
+
+  .announce .announce-container {
+    display: block !important;
+  }
+
+  .announce .announce-container ul {
+    width: 40% !important;
+    margin: auto !important;
+    justify-content: center;
+  }
+
+  .announce .announce-container p {
+    text-align: center !important;
+    margin: 1rem auto !important;
+  }
+
+  header {
+    padding: 4rem 0rem !important;
+  }
+
+  header .menu {
+    display: none;
+  }
+
+  header .material-symbols-outlined {
+    display: block;
+  }
+
+  header .header-icons {
+    width: 20%;
+  }
+
+  header .logo {
+    width: 20% !important;
+  }
+
+  header img {
+    width: 15%;
+  }
+
+  .announce .announce-container .lang {
+    justify-content: center;
+  }
+
+  main .slide .text {
+    width: 36%;
+    margin-left: 5rem !important;
+  }
+
+  main .slide .social-networks {
+    margin-left: 3rem;
+  }
+
+  main .slide img {
+    width: 60%;
+  }
+
+  main .collections ul {
+    width: 60%;
+  }
+
+  main .collections {
+    width: 100%;
+  }
+
+  main .collections .items {
+    width: 98% !important;
+  }
+
+  .slide-2 {
+    padding: 26rem 0rem !important;
+  }
+
+  main .collections .items .item .top {
+    padding: 21rem 0rem;
+  }
+
+  .slide-2-bg .slide-2-text {
+    display: none;
+  }
+  main .slide-2-text-2 {
+    display: block !important;
+    width: 100%;
+  }
+
+  main .blog {
+    width: 100% !important;
+  }
+
+  main .blog .blog-post {
+    width: 48%;
+  }
+
+  main .blog .blog-post .top {
+    padding: 20rem 0rem;
+  }
+
+  .instagram-feed .feeds {
+    width: 98% !important;
+  }
+  .instagram-feed .feeds .feed {
+    width: 25%;
+  }
+  .instagram-feed .text {
+    width: 30% !important;
+    top: 40% !important;
+  }
+
+  footer .footer-box {
+    width: 33.33% !important;
+    margin-bottom: 6rem;
+  }
+
+  footer {
+    justify-content: start !important;
+  }
+
+  .copyright {
+    align-items: center !important;
+  }
+
+  .copyright .left {
+    width: 50% !important;
+  }
+
+  .copyright .left p {
+    width: 100%;
+  }
+
+  .copyright .payments {
+    width: 35% !important;
+    justify-content: space-between;
+  }
+
+  .copyright .payments .method {
+    width: 16%;
+  }
+}
+
+@media only screen and (max-width: 1250px) {
+  .slide-2 {
+    padding: 20rem 0rem !important;
+  }
+}
+
+@media only screen and (max-width: 1101px) {
+  .announce .announce-container ul {
+    width: 60% !important;
+    margin: auto;
+  }
+
+  .copyright .left {
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  .copyright .left p {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .announce .announce-container {
+    font-size: 1.5rem !important;
+  }
+
+  .collections ul {
+    width: 70% !important;
+  }
+
+  .announce .announce-container ul li {
+    width: 100% !important;
+  }
+
+  .announce .announce-container .contact {
+    width: 100% !important;
+  }
+
+  .announce .announce-container .contact li {
+    justify-content: center;
+  }
+
+  .slide {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .slide img {
+    order: -1;
+    width: 100% !important;
+  }
+
+  .slide .text {
+    width: 100% !important;
+  }
+
+  .slide .social-networks {
+    left: 0.5rem;
+    bottom: 0.5rem;
+  }
+
+  .banners .banner .text {
+    padding: 1rem !important;
+    background-color: rgba(255, 255, 255, 0.616);
+  }
+
+  .collections .items .item {
+    width: 49% !important;
+  }
+
+  .collections .items .item .top {
+    padding: 25rem 0rem !important;
+  }
+
+  .slide-2 {
+    padding: 16rem 0rem !important;
+  }
+
+  .announce-container .lang select {
+    margin: auto !important;
+  }
+
+  .announce-container .contact {
+    justify-content: center !important;
+  }
+}
+
+@media only screen and (max-width: 601px) {
+  .collections ul {
+    width: 90% !important;
+  }
+
+  .banners .banner {
+    width: 98% !important;
+  }
+
+  .collections .items .item {
+    width: 98% !important;
+  }
+
+  .collections .items .item .top {
+    padding: 30rem 0rem !important;
+  }
+  .blog .blog-post {
+    width: 98% !important;
+    margin-bottom: 2rem;
+  }
+
+  .slide-2 {
+    padding: 10rem 0rem !important;
+  }
+
+  .instagram-feed .feeds .feed {
+    width: 100% !important;
+    padding: 25rem 0rem;
+  }
+
+  .instagram-feed .feeds .text span {
+    font-size: 0.5rem !important;
+  }
+
+  .instagram-feed .feeds .text p {
+    font-size: 1rem !important;
+  }
+
+  footer {
+    width: 98% !important;
+    margin: auto !important;
+  }
+
+  footer .footer-box {
+    width: 49% !important;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .collections ul {
+    font-size: 1.5rem !important;
+  }
+
+  .announce-container,
+  main {
+    width: 100% !important;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  html {
+    font-size: 5px !important;
+  }
+
+  .material-symbols-outlined {
+    font-size: 2rem;
+  }
+
+  .announce .announce-container p {
+    text-align: center;
+    margin: 1rem auto;
+  }
+
+  header .header-icons {
+    width: 40%;
+  }
+
+  header .material-symbols-outlined {
+    font-size: 4rem;
+  }
+
+  header .logo {
+    width: 40% !important;
+  }
+
+  .slide {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .slide img {
+    order: -1;
+    width: 100% !important;
+  }
+
+  .slide .text {
+    width: 100% !important;
+  }
+
+  .slide .social-networks {
+    left: 20%;
+    bottom: 7%;
+  }
+
+  .banners .banner {
+    width: 100%;
+    padding: 11rem 1rem !important;
+    background-size: 70%;
+    margin-bottom: 5rem;
+  }
+
+  .banners .banner .text p {
+    font-size: 4rem;
+  }
+
+  .banners .banner .text span {
+    display: inline !important;
+  }
+  main .collections .items {
+    width: 100%;
+    margin: auto;
+  }
+
+  .collections ul {
+    width: 100% !important;
+  }
+
+  main .collections .items .item {
+    width: 100% !important;
+    padding: 0rem 1rem;
+  }
+
+  main .collections .items .item .top {
+    padding: 50rem 0rem !important;
+  }
+
+  .slide-2 {
+    background-size: 100% !important;
+    padding: 12rem 0rem !important;
+  }
+
+  main .blog .blog-post {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  main .blog .blog-post span {
+    font-size: 2rem;
+    width: 100%;
+  }
+
+  main .blog .blog-post-2 {
+    display: none !important;
+  }
+
+  .instagram-feed .feeds .feed {
+    width: 100%;
+    padding: 30rem 0rem !important;
+  }
+
+  .instagram-feed .text {
+    width: 80% !important;
+    left: 10% !important;
+    bottom: auto !important;
+  }
+
+  footer .footer-box {
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  footer p,
+  footer a {
+    font-size: 2rem !important;
+    width: 100% !important;
+  }
+
+  .footer-menu .icons {
+    margin: auto;
+    margin-top: -5rem;
+  }
+
+  .footer-menu .icons .icon {
+    padding: 10rem 0rem !important;
+  }
+
+  .copyright .left {
+    width: 70% !important;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .copyright .payments {
+    width: 80% !important;
+  }
+}

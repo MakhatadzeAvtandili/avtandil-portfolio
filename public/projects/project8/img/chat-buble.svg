@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 1000">
+  <defs>
+    <style>
+      .cls-1 {
+        mask: url(#mask-1);
+      }
+
+      .cls-2 {
+        mask: url(#mask);
+      }
+
+      .cls-3 {
+        filter: url(#luminosity-noclip-2);
+      }
+
+      .cls-4 {
+        mask: url(#mask-2);
+      }
+
+      .cls-5 {
+        filter: url(#luminosity-noclip-3);
+      }
+
+      .cls-6 {
+        isolation: isolate;
+      }
+
+      .cls-7 {
+        mix-blend-mode: multiply;
+        opacity: .8;
+      }
+
+      .cls-8 {
+        filter: url(#luminosity-noclip);
+      }
+    </style>
+    <filter id="luminosity-noclip" x="583" y="410.9" width="97.6" height="97.6" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-color="#fff" result="bg"/>
+      <feBlend in="SourceGraphic" in2="bg"/>
+    </filter>
+    <mask id="mask" x="583" y="410.9" width="97.6" height="97.6" maskUnits="userSpaceOnUse">
+      <g class="cls-8">
+        <image width="98" height="99" transform="translate(583 410)" xlink:href="chat-buble-3.png"/>
+      </g>
+    </mask>
+    <filter id="luminosity-noclip-2" x="451.2" y="410.9" width="97.6" height="97.6" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-color="#fff" result="bg"/>
+      <feBlend in="SourceGraphic" in2="bg"/>
+    </filter>
+    <mask id="mask-1" x="451.2" y="410.9" width="97.6" height="97.6" maskUnits="userSpaceOnUse">
+      <g class="cls-3">
+        <image width="98" height="99" transform="translate(451 410)" xlink:href="chat-buble-6.png"/>
+      </g>
+    </mask>
+    <filter id="luminosity-noclip-3" x="319.4" y="410.9" width="97.6" height="97.6" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-color="#fff" result="bg"/>
+      <feBlend in="SourceGraphic" in2="bg"/>
+    </filter>
+    <mask id="mask-2" x="319.4" y="410.9" width="97.6" height="97.6" maskUnits="userSpaceOnUse">
+      <g class="cls-5">
+        <image width="98" height="99" transform="translate(319 410)" xlink:href="chat-buble-9.png"/>
+      </g>
+    </mask>
+  </defs>
+  <!-- Generator: Adobe Illustrator 28.7.1, SVG Export Plug-In . SVG Version: 1.2.0 Build 142)  -->
+  <g class="cls-6">
+    <g id="Layer_1">
+      <g>
+        <image width="196" height="184" transform="translate(510 558)" xlink:href="chat-buble-1.png"/>
+        <image width="504" height="303" transform="translate(248 306)" xlink:href="chat-buble-2.png"/>
+        <g>
+          <g>
+            <g class="cls-2">
+              <image class="cls-7" width="98" height="99" transform="translate(583 410)" xlink:href="chat-buble-4.png"/>
+            </g>
+            <image width="67" height="67" transform="translate(598 420)" xlink:href="chat-buble-5.png"/>
+          </g>
+          <g>
+            <g class="cls-1">
+              <image class="cls-7" width="98" height="99" transform="translate(451 410)" xlink:href="chat-buble-7.png"/>
+            </g>
+            <image width="68" height="67" transform="translate(466 420)" xlink:href="chat-buble-8.png"/>
+          </g>
+          <g>
+            <g class="cls-4">
+              <image class="cls-7" width="98" height="99" transform="translate(319 410)" xlink:href="chat-buble-10.png"/>
+            </g>
+            <image width="67" height="67" transform="translate(335 420)" xlink:href="chat-buble-11.png"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

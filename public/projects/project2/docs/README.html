@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Aurora Glow Pricing Table — Documentation</title>
+
+    <!-- Inline (embedded) CSS only -->
+    <style>
+      :root {
+        --bg: #060815;
+        --panel: rgba(255, 255, 255, 0.06);
+        --panel-2: rgba(255, 255, 255, 0.04);
+        --border: rgba(255, 255, 255, 0.16);
+        --text: #e9ecff;
+        --muted: #b8c1ff;
+        --accent-a: #6c5cff;
+        --accent-b: #00e0ff;
+        --radius: 18px;
+        --shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        color: var(--text);
+        background: var(--bg);
+        font: 16px/1.65 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
+          "Helvetica Neue", Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      /* Aurora backdrop */
+      .wrap {
+        position: relative;
+        min-height: 100%;
+        padding: 56px 20px 80px;
+        overflow: hidden;
+      }
+      .aur {
+        position: absolute;
+        inset: auto;
+        pointer-events: none;
+        mix-blend-mode: screen;
+        filter: blur(48px);
+        border-radius: 50%;
+      }
+      .aur.a {
+        width: 62vmax;
+        height: 62vmax;
+        top: -18vmax;
+        left: -12vmax;
+        background: radial-gradient(
+          closest-side at 40% 40%,
+          rgba(108, 92, 255, 0.75),
+          rgba(108, 92, 255, 0) 70%
+        );
+      }
+      .aur.b {
+        width: 70vmax;
+        height: 70vmax;
+        bottom: -22vmax;
+        right: -16vmax;
+        background: radial-gradient(
+          closest-side at 60% 60%,
+          rgba(0, 224, 255, 0.75),
+          rgba(0, 224, 255, 0) 70%
+        );
+      }
+      .aur.c {
+        width: 55vmax;
+        height: 55vmax;
+        top: 12vmax;
+        right: 8vmax;
+        background: radial-gradient(
+          closest-side,
+          rgba(255, 255, 255, 0.28),
+          rgba(255, 255, 255, 0) 65%
+        );
+      }
+
+      /* Panel */
+      .panel {
+        position: relative;
+        margin: 0 auto;
+        max-width: 1000px;
+        padding: 28px;
+        background: linear-gradient(180deg, var(--panel), var(--panel-2));
+        border: 1px solid var(--border);
+        border-radius: 22px;
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        box-shadow: var(--shadow);
+      }
+
+      /* Typography */
+      h1,
+      h2,
+      h3 {
+        margin: 0 0 10px;
+      }
+      h1 {
+        font-size: clamp(28px, 3.5vw, 40px);
+        line-height: 1.15;
+        background: linear-gradient(90deg, var(--accent-a), var(--accent-b));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      h2 {
+        font-size: clamp(20px, 2.3vw, 28px);
+        color: #f5f7ff;
+      }
+      h3 {
+        font-size: clamp(18px, 2vw, 22px);
+        color: #f5f7ff;
+      }
+      p {
+        margin: 10px 0;
+        color: var(--text);
+      }
+      em,
+      i {
+        color: var(--muted);
+      }
+      strong {
+        color: #fff;
+      }
+
+      /* Lists */
+      ul,
+      ol {
+        margin: 8px 0 14px;
+        padding-left: 22px;
+      }
+      li {
+        margin: 6px 0;
+      }
+
+      /* Code / pre */
+      pre {
+        margin: 12px 0;
+        padding: 14px 16px;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        color: #eef2ff;
+        overflow: auto;
+      }
+      code {
+        background: rgba(255, 255, 255, 0.08);
+        padding: 0.15em 0.4em;
+        border-radius: 8px;
+      }
+
+      /* Tables */
+      .table-wrap {
+        overflow: auto;
+      }
+      table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        overflow: hidden;
+      }
+      thead th {
+        background: rgba(255, 255, 255, 0.08);
+        color: #f4f6ff;
+      }
+      th,
+      td {
+        padding: 10px 12px;
+        text-align: left;
+      }
+      tbody tr + tr td {
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      td.center {
+        text-align: center;
+      }
+
+      /* Section divider */
+      .hr {
+        height: 1px;
+        margin: 26px 0;
+        border: 0;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.25),
+          transparent
+        );
+      }
+
+      /* Small utilities */
+      .muted {
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="aur a" aria-hidden="true"></div>
+      <div class="aur b" aria-hidden="true"></div>
+      <div class="aur c" aria-hidden="true"></div>
+
+      <main class="panel" role="main" aria-label="Documentation">
+        <!-- CONTENT START — text is EXACTLY as you provided -->
+        <h1># Aurora Glow Pricing Table v2.0.0</h1>
+
+        <p>
+          Thank you for purchasing the Aurora Glow Pricing Table! This is a
+          premium, fully responsive pricing table component designed to give
+          your website a standout, modern look.
+        </p>
+
+        <p>
+          Version 2.0 is a complete visual overhaul focused on dynamism,
+          interaction, and creating a stunning user experience.
+        </p>
+
+        <h2>## Key Features</h2>
+        <ul>
+          <li>
+            **Framework-Free:** Built with pure HTML, CSS, and JavaScript. No
+            dependencies or bloat.
+          </li>
+          <li>
+            **Dynamic "Aurora" Background:** A live, animated gradient
+            background that gives the design depth and a unique feel.
+          </li>
+          <li>
+            **Glassmorphism Effect:** Frosted-glass style cards that react to
+            the background, creating a premium aesthetic.
+          </li>
+          <li>
+            **3D Hover Animations:** Cards gain a subtle 3D perspective on
+            hover, making the experience more interactive and engaging.
+          </li>
+          <li>
+            **Fully Responsive:** Looks perfect on all devices, from mobile
+            phones to 4K desktops.
+          </li>
+          <li>
+            **Easy Customization:** The design can be easily themed by changing
+            a few CSS variables.
+          </li>
+          <li>
+            **Accessibility Ready:** Built with WCAG 2.1 AA standards in mind,
+            including keyboard navigation and high-contrast text.
+          </li>
+          <li>
+            **Clean Code:** Well-commented and structured with BEM methodology
+            for easy maintenance.
+          </li>
+        </ul>
+
+        <h2>## File Structure</h2>
+        <pre><code>/
+├─ index.html          (Demo page)
+├─ /assets/css/
+│  └─ pricing-table.css (Core styles v2.0)
+├─ /assets/js/
+│  └─ pricing-table.js  (Component logic)
+└─ /docs/
+├─ README.md         (This file)
+├─ customization.md  (Guide to customizing styles)
+├─ accessibility.md  (Accessibility statement)
+└─ changelog.md      (Version history)
+</code></pre>
+
+        <p>
+          <em
+            >*Note: The `themes.css` file has been removed in v2.0, as the new
+            design is a single, unified visual system.*</em
+          >
+        </p>
+
+        <h2>## Quick Start (Installation)</h2>
+        <ol>
+          <li>
+            <strong>Copy Files:</strong> Copy the <code>assets</code> folder
+            into your project's directory.
+          </li>
+          <li>
+            <strong>Link CSS:</strong> In the <code>&lt;head&gt;</code> of your
+            HTML file, add the link to <code>pricing-table.css</code>.
+            <pre><code>```html
+&lt;link rel="stylesheet" href="path/to/assets/css/pricing-table.css"&gt;
+```</code></pre>
+          </li>
+          <li>
+            <strong>Link JavaScript:</strong> Before the closing
+            <code>&lt;/body&gt;</code> tag, add the link to
+            <code>pricing-table.js</code>.
+            <pre><code>```html
+&lt;script src="path/to/assets/js/pricing-table.js"&gt;&lt;/script&gt;
+```</code></pre>
+          </li>
+          <li>
+            <strong>Add HTML Structure:</strong> Copy the HTML code from
+            <code>index.html</code>. <strong>Important:</strong> The structure
+            must be placed inside the
+            <code>&lt;main class="pt-container"&gt;</code> wrapper, which holds
+            both the aurora background elements and the pricing table itself.
+            <pre><code>```html
+&lt;main class="pt-container"&gt;
+    &lt;div class="aurora-bg aurora-bg--1"&gt;&lt;/div&gt;
+    &lt;div class="aurora-bg aurora-bg--2"&gt;&lt;/div&gt;
+    &lt;div class="aurora-bg aurora-bg--3"&gt;&lt;/div&gt;
+
+    &lt;section class="pt" id="pricing"&gt;
+            &lt;/section&gt;
+&lt;/main&gt;
+```</code></pre>
+          </li>
+        </ol>
+
+        <h2>## Testing</h2>
+        <p>
+          This component has been tested on the latest versions of the following
+          browsers:
+        </p>
+
+        <div
+          class="table-wrap"
+          role="region"
+          aria-label="Browser support table"
+        >
+          <table>
+            <thead>
+              <tr>
+                <th>Browser</th>
+                <th class="center">Desktop</th>
+                <th class="center">Mobile</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Google Chrome</td>
+                <td class="center">✅</td>
+                <td class="center">✅</td>
+              </tr>
+              <tr>
+                <td>Mozilla Firefox</td>
+                <td class="center">✅</td>
+                <td class="center">✅</td>
+              </tr>
+              <tr>
+                <td>Apple Safari</td>
+                <td class="center">✅</td>
+                <td class="center">✅</td>
+              </tr>
+              <tr>
+                <td>Microsoft Edge</td>
+                <td class="center">✅</td>
+                <td class="center">✅</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>## License</h2>
+        <p>
+          The code is licensed under the terms of your CodeCanyon license. The
+          SVG icons used are embedded in the HTML and are free to use and
+          modify.
+        </p>
+
+        <p>/docs/customization.md<br />Markdown</p>
+
+        <h1># Customization &amp; Theming (v2.0)</h1>
+
+        <p>
+          The Aurora Glow Pricing Table is designed for easy and flexible
+          customization. You can change the core aspects of the design by
+          editing just a few lines of CSS.
+        </p>
+
+        <h2>## Customizing the Aurora Background</h2>
+        <p>
+          The most unique part of the design, the dynamic background, is
+          controlled by the <code>.aurora-bg</code> classes.
+        </p>
+
+        <p>
+          To change the background colors, open
+          <code>pricing-table.css</code> and find the following selectors:
+        </p>
+        <ul>
+          <li><code>.aurora-bg--1</code></li>
+          <li><code>.aurora-bg--2</code></li>
+          <li><code>.aurora-bg--3</code></li>
+        </ul>
+
+        <p>
+          In each of these, you can change the
+          <code>background-color</code> property to any color you like.
+        </p>
+
+        <p><strong>Example: Creating a "Sunset" effect:</strong></p>
+        <pre><code>```css
+.aurora-bg--1 {
+  background-color: #ff5e00; /* Orange */
+  /* ... */
+}
+.aurora-bg--2 {
+  background-color: #ff007f; /* Pink */
+  /* ... */
+}
+.aurora-bg--3 {
+  background-color: #6a00ff; /* Purple */
+  /* ... */
+}
+```</code></pre>
+
+        <p>
+          Note: For advanced customization, you can edit the @keyframes
+          aurora-move rules to change the animation speed and movement path.
+        </p>
+
+        <p>
+          Core CSS Variables<br />
+          Global design parameters are controlled by CSS variables located at
+          the top of pricing-table.css inside the :root selector.
+        </p>
+
+        <p>
+          Variable&nbsp;&nbsp;&nbsp;Description<br />
+          Colors&nbsp;&nbsp;&nbsp;<br />
+          --pt-text-primary&nbsp;&nbsp;&nbsp;Main text color (headings,
+          prices).<br />
+          --pt-text-secondary&nbsp;&nbsp;&nbsp;Secondary text color
+          (descriptions, period).<br />
+          --pt-accent-start&nbsp;&nbsp;&nbsp;The starting color of the main
+          gradient (buttons, icons).<br />
+          --pt-accent-end&nbsp;&nbsp;&nbsp;The ending color of the main
+          gradient.<br />
+          --pt-card-bg&nbsp;&nbsp;&nbsp;The card background color (use rgba for
+          transparency).<br />
+          --pt-card-border-color&nbsp;&nbsp;&nbsp;The card border color.<br />
+          Sizing &amp; Spacing&nbsp;&nbsp;&nbsp;<br />
+          --pt-max-width&nbsp;&nbsp;&nbsp;The maximum width of the component.<br />
+          --pt-gap&nbsp;&nbsp;&nbsp;The space between the pricing cards.<br />
+          --pt-card-padding&nbsp;&nbsp;&nbsp;The inner padding within each
+          card.<br />
+          --pt-card-radius&nbsp;&nbsp;&nbsp;The border-radius for the cards.<br />
+          --pt-btn-radius&nbsp;&nbsp;&nbsp;The border-radius for the buttons.<br />
+          Animation&nbsp;&nbsp;&nbsp;<br />
+          --pt-speed&nbsp;&nbsp;&nbsp;The base speed for all animations.<br />
+          --pt-easing&nbsp;&nbsp;&nbsp;The timing function for animations (e.g.,
+          cubic-bezier).
+        </p>
+
+        <p>
+          Export to Sheets<br />
+          Adding or Removing a Plan<br />
+          To Add: To add a new plan, simply copy an entire &lt;article
+          class="pt__card"&gt;...&lt;/article&gt; block and paste it inside the
+          &lt;div class="pt__cards"&gt; container. The grid system will
+          automatically adjust the layout.
+        </p>
+
+        <p>
+          To Remove: To remove a plan, just delete its corresponding
+          &lt;article&gt; block.
+        </p>
+
+        <div class="hr" role="separator" aria-hidden="true"></div>
+
+        <h3>### accessibility</h3>
+
+        <pre><code>```markdown
+# Accessibility Statement (WCAG 2.1 AA)
+
+We believe the web should be accessible to everyone. This component was built with accessibility best practices in mind to meet WCAG 2.1 AA standards.
+
+| Guideline | Criteria | Status | Notes |
+| :--- | :--- | :---: | :--- |
+| **Perceivable** | | | |
+| 1.1 Text Alternatives | All non-text content has a text alternative. | ✅ | Decorative SVG icons have `aria-hidden="true"`. |
+| 1.3.1 Info & Relationships | Information, structure, and relationships are programmatically determined. | ✅ | Semantic HTML (`&lt;main&gt;`, `&lt;section&gt;`, `&lt;h2-h3&gt;`, `&lt;ul&gt;`, `&lt;button&gt;`) is used. |
+| 1.4.3 Contrast (Minimum) | Text has a contrast ratio of at least 4.5:1. | ✅ | The light text on the dark, semi-transparent background of the "Aurora Glow" design provides excellent contrast. |
+| **Operable** | | | |
+| 2.1.1 Keyboard | All functionality is operable through a keyboard. | ✅ | All interactive elements (buttons, toggle) are focusable and can be activated with Enter/Space. |
+| 2.4.3 Focus Order | Focus order is logical and predictable. | ✅ | The DOM order matches the visual layout. |
+| 2.4.7 Focus Visible | A keyboard focus indicator is visible. | ✅ | A clear, high-contrast outline is applied to all elements on `:focus-visible`. |
+| **Understandable** | | | |
+| 3.2.2 On Input | Changing the setting of a UI component does not cause an unexpected change of context. | ✅ | The billing toggle only changes prices on the page; it does not navigate away or unexpectedly alter the layout. |
+| 3.3.2 Labels or Instructions | Labels or instructions are provided when content requires user input. | ✅ | The billing toggle is clearly labeled "Monthly" and "Annual". |
+| **Robust** | | | |
+| 4.1.2 Name, Role, Value | The name, role, and state of UI components can be programmatically determined. | ✅ | The billing toggle uses `role="switch"` and `aria-checked` to communicate its state. |
+
+## Additional Considerations
+
+-   **Reduced Motion:** The component respects the `prefers-reduced-motion` media query to disable non-essential animations for users who are sensitive to motion.
+-   **Skip Link:** The demo page includes a "Skip to pricing" link for keyboard users to easily navigate to the main content.
+```</code></pre>
+        <!-- CONTENT END -->
+      </main>
+    </div>
+  </body>
+</html>

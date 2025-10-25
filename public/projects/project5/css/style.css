@@ -1,0 +1,150 @@
+@import url("./animations.css");
+
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+}
+
+.sun,
+.moon,
+.cloud-1,
+.cloud-2,
+.skateboarder,
+.man {
+  position: absolute;
+}
+
+.night-bg,
+.day-bg {
+  width: 100%;
+}
+
+.night-bg {
+  opacity: 1;
+  animation: night-animation 8s infinite;
+  position: absolute;
+  top: 0px;
+}
+
+.sun,
+.moon,
+.cloud-1,
+.cloud-2 {
+  z-index: 1;
+  width: 15%;
+}
+
+.cloud-1 {
+  right: -16%;
+  top: 5%;
+  animation: cloud-1-animation 8s infinite;
+}
+
+.cloud-2 {
+  left: -16%;
+  top: 10%;
+  animation: cloud-2-animation 8s infinite;
+}
+
+.moon {
+  left: -14%;
+  bottom: 50%;
+  animation: moon-animation 8s linear infinite;
+}
+
+.sun {
+  left: 100%;
+  bottom: 50%;
+  opacity: 1;
+  animation: sun-animation 8s linear infinite;
+}
+
+a {
+  position: absolute;
+  z-index: 2;
+  width: 10%;
+  text-align: center;
+  text-decoration: none;
+  padding: 1rem 0.5rem;
+  border-radius: 2rem;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: none;
+  box-shadow: 1px 5px 12px 7px rgba(0, 0, 0, 0.445);
+}
+
+.button-1 {
+  left: 35%;
+  bottom: 10%;
+  background: linear-gradient(to right, #d900ff83, #ffae00b0),
+    linear-gradient(to bottom, #ff0000e1, #4000ff);
+  animation: button-1 2s ease;
+}
+
+.button-1:hover {
+  animation: button-1-hover 1s ease infinite;
+}
+
+.button-2 {
+  right: 35%;
+  bottom: 10%;
+  background: linear-gradient(to right, #ff5f2952, #ffae00bd),
+    linear-gradient(to bottom, #ff0000e1, #9e246f);
+  animation: button-2 2s ease-in-out;
+}
+
+.button-2:hover {
+  animation: button-2-hover 1s ease infinite;
+}
+
+.container-2 .night {
+  opacity: 0;
+}
+
+.airplane {
+  position: absolute;
+  bottom: 30%;
+  left: -15%;
+  scale: 0;
+  animation: airplane-animation 5s linear infinite;
+}
+
+hr {
+  background-color: black;
+  padding: 30px 0px;
+}
+
+.skateboarder {
+  bottom: 5%;
+  left: -15%;
+  filter: drop-shadow(0px 15px 25px rgba(0, 0, 0, 0.5));
+  animation: skateboarder-animation 8s 1s linear infinite;
+}
+
+.d-none {
+  display: none;
+}
+
+.loading {
+  width: 0%;
+  background: linear-gradient(to right, #ff5f29, #ffae00);
+  padding: 20px;
+  animation: loading 8s linear infinite;
+  box-shadow: 1px 5px 12px 7px rgba(0, 0, 0, 0.445);
+}
+
+.man {
+  bottom: -0.8%;
+  left: 1.5%;
+  animation: man-animation 8s linear infinite;
+}

@@ -1,0 +1,392 @@
+/*
+ * Aurora Glow Pricing Table v2.0.0
+ * Copyright 2025 YourName/YourCompany
+ * A premium, responsive, and visually-rich pricing table component.
+*/
+
+/* ==========================================================================
+  1. CSS Variables
+========================================================================== */
+:root {
+  /* FONT */
+  --pt-font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  /* CORE COLORS - VIBRANT PALETTE */
+  --pt-text-primary: #ffffff;
+  --pt-text-secondary: #a3b2ff;
+  --pt-accent-start: #00a2ff;
+  --pt-accent-end: #00e0c6;
+  --pt-accent-gradient: linear-gradient(
+    90deg,
+    var(--pt-accent-start) 0%,
+    var(--pt-accent-end) 100%
+  );
+
+  /* CARD & GLASSMORPHISM */
+  --pt-card-bg: rgba(30, 31, 88, 0.3);
+  --pt-card-border-color: rgba(255, 255, 255, 0.2);
+  --pt-card-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --pt-card-glow: 0 0 40px rgba(0, 194, 255, 0.2);
+
+  /* BUTTONS */
+  --pt-btn-bg: rgba(255, 255, 255, 0.1);
+  --pt-btn-text: var(--pt-text-primary);
+  --pt-btn-border: var(--pt-card-border-color);
+  --pt-btn-hover-bg: rgba(255, 255, 255, 0.2);
+
+  /* SIZING & SPACING */
+  --pt-max-width: 1200px;
+  --pt-gap: 2rem;
+  --pt-card-padding: 2.5rem;
+  --pt-card-radius: 1.5rem; /* Increased border radius */
+  --pt-btn-radius: 0.75rem;
+
+  /* ANIMATION */
+  --pt-speed: 0.4s;
+  --pt-easing: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* ==========================================================================
+  2. Aurora Background & Main Container
+========================================================================== */
+.pt-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 4rem 1.5rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Contains the aurora blobs */
+  z-index: 1;
+}
+
+.aurora-bg {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: -1;
+  opacity: 0.6;
+}
+.aurora-bg--1 {
+  width: 500px;
+  height: 500px;
+  background-color: #3800ff;
+  top: -10%;
+  left: -15%;
+  animation: aurora-move 20s infinite alternate;
+}
+.aurora-bg--2 {
+  width: 450px;
+  height: 450px;
+  background-color: #00a2ff;
+  bottom: 0%;
+  right: -10%;
+  animation: aurora-move 25s infinite alternate-reverse;
+}
+.aurora-bg--3 {
+  width: 300px;
+  height: 300px;
+  background-color: #ff00c8;
+  top: 30%;
+  right: 20%;
+  animation: aurora-move 18s infinite alternate;
+}
+
+@keyframes aurora-move {
+  from {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  to {
+    transform: translate(100px, 50px) rotate(45deg) scale(1.2);
+  }
+}
+
+/* ==========================================================================
+  3. Base & Layout
+========================================================================== */
+.pt {
+  max-width: var(--pt-max-width);
+  margin-inline: auto;
+  font-family: var(--pt-font-family);
+  color: var(--pt-text-primary);
+}
+
+.pt__header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.pt__title {
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-weight: 800;
+  margin: 0 0 1rem;
+  letter-spacing: -1px;
+}
+
+.pt__subtitle {
+  font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+  color: var(--pt-text-secondary);
+  margin: 0;
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+/* ==========================================================================
+  4. Billing Toggle Switch
+========================================================================== */
+.pt__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.pt__toggle-label {
+  font-weight: 500;
+  color: var(--pt-text-secondary);
+  cursor: pointer;
+  user-select: none;
+}
+
+.pt__toggle-discount {
+  background: var(--pt-accent-gradient);
+  color: var(--pt-text-primary);
+  padding: 0.25rem 0.75rem;
+  border-radius: 99px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-inline-start: 0.5rem;
+}
+
+.pt__toggle-switch {
+  position: relative;
+  width: 50px;
+  height: 28px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--pt-card-border-color);
+  border-radius: 34px;
+  cursor: pointer;
+  transition: background-color var(--pt-speed) ease;
+  flex-shrink: 0;
+}
+.pt__toggle-switch[aria-checked="true"] {
+  background: var(--pt-accent-end);
+}
+.pt__toggle-nub {
+  position: absolute;
+  height: 22px;
+  width: 22px;
+  inset-inline-start: 2px;
+  bottom: 2px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: transform var(--pt-speed) var(--pt-easing);
+}
+.pt__toggle-switch[aria-checked="true"] .pt__toggle-nub {
+  transform: translateX(22px);
+}
+
+/* ==========================================================================
+  5. Pricing Cards
+========================================================================== */
+.pt__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--pt-gap);
+  justify-content: center;
+}
+
+.pt__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--pt-card-bg);
+  border: 1px solid var(--pt-card-border-color);
+  border-radius: var(--pt-card-radius);
+  padding: var(--pt-card-padding);
+  box-shadow: var(--pt-card-shadow);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: transform var(--pt-speed) var(--pt-easing),
+    box-shadow var(--pt-speed) var(--pt-easing);
+  will-change: transform, box-shadow;
+}
+
+.pt__card:hover {
+  transform: perspective(1000px) translateY(-15px) rotateX(3deg);
+  box-shadow: var(--pt-card-shadow), var(--pt-card-glow);
+  cursor: pointer;
+}
+
+/* ==========================================================================
+  6. Card Content
+========================================================================== */
+.pt__card-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+}
+.pt__card-description {
+  color: var(--pt-text-secondary);
+  margin: 0;
+  min-height: 2.5em;
+}
+.pt__price {
+  margin: 2rem 0;
+}
+.pt__price-currency {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--pt-text-secondary);
+  margin-inline-end: 0.25rem;
+}
+.pt__price-value {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+.pt__price-period {
+  font-weight: 500;
+  color: var(--pt-text-secondary);
+  margin-inline-start: 0.5rem;
+}
+.pt__features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2.5rem;
+  flex-grow: 1;
+}
+.pt__feature {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  transition: transform 0.2s;
+}
+.pt__card:hover .pt__feature:hover {
+  transform: translateX(5px);
+  color: var(--pt-accent-end);
+}
+.pt__feature-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+.pt__feature--included .pt__feature-icon {
+  color: var(--pt-accent-end);
+}
+.pt__feature--excluded {
+  color: var(--pt-text-secondary);
+  opacity: 0.6;
+}
+.pt__card-footer {
+  margin-top: auto;
+}
+
+/* ==========================================================================
+  7. Buttons & CTA
+========================================================================== */
+.pt__cta {
+  display: block;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border-radius: var(--pt-btn-radius);
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid var(--pt-btn-border);
+  background: var(--pt-btn-bg);
+  color: var(--pt-btn-text);
+  transition: all var(--pt-speed) var(--pt-easing);
+}
+
+.pt__cta:hover {
+  background: var(--pt-btn-hover-bg);
+  transform: scale(1.03);
+}
+
+.pt__cta--primary {
+  color: var(--pt-text-primary);
+  border: none;
+  background: var(--pt-accent-gradient);
+  background-size: 200% auto;
+  box-shadow: 0 4px 15px rgba(0, 209, 230, 0.2);
+}
+
+.pt__cta--primary:hover {
+  background-position: right center; /* Change the gradient direction */
+  transform: scale(1.03);
+  box-shadow: 0 8px 25px rgba(0, 209, 230, 0.4);
+}
+
+/* ==========================================================================
+  8. "Most Popular" Card Variant
+========================================================================== */
+.pt__card--popular {
+  transform: scale(1.05); /* Make it slightly larger by default */
+  box-shadow: var(--pt-card-shadow), var(--pt-card-glow);
+}
+.pt__card--popular:hover {
+  transform: scale(1.08) perspective(1000px) translateY(-15px) rotateX(3deg);
+}
+
+.pt__popular-badge {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: var(--pt-accent-gradient);
+  color: var(--pt-text-primary);
+  padding: 0.35rem 1rem;
+  border-radius: 99px;
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+/* ==========================================================================
+  9. Accessibility & RTL
+========================================================================== */
+*:focus-visible {
+  outline: 2px solid var(--pt-accent-end);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.pt__toggle-switch:focus-visible {
+  border-radius: 34px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-bg {
+    animation: none;
+  }
+  .pt__card,
+  .pt__cta,
+  .pt__toggle-nub,
+  .pt__feature {
+    transition: none;
+  }
+  .pt__card:hover {
+    transform: none;
+  }
+  .pt__cta--primary:hover {
+    background-position: left center;
+  }
+}
+
+@media (max-width: 768px) {
+  .pt__cards {
+    grid-template-columns: 1fr;
+  }
+  .pt__card--popular {
+    transform: scale(1);
+  }
+  .pt__card--popular:hover {
+    transform: translateY(-15px);
+  }
+  .pt-container {
+    padding: 4rem 1rem;
+  }
+}

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Documentation — Premium Digital Assets Landing (HTML/CSS/JS)</title>
+    <style>
+      :root {
+        --bg: #0b1220;
+        --panel: #0f172a;
+        --text: #e2e8f0;
+        --muted: #94a3b8;
+        --brand: #3b82f6;
+        --brand-2: #22c55e;
+        --stroke: #243041;
+        --code: #0a0f1a;
+        --radius: 14px;
+        --shadow: 0 8px 30px rgba(2, 6, 23, 0.35);
+        --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono",
+          monospace;
+        --sans: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial,
+          sans-serif;
+      }
+      html,
+      body {
+        background: linear-gradient(180deg, #0b1220, #0b1220 40%, #0a101c);
+        color: var(--text);
+        font-family: var(--sans);
+        line-height: 1.65;
+      }
+      .wrap {
+        max-width: 980px;
+        margin: 40px auto;
+        padding: 0 18px;
+      }
+      .card {
+        background: linear-gradient(180deg, #0f172a, #0c1422);
+        border: 1px solid var(--stroke);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 22px;
+      }
+      h1,
+      h2,
+      h3 {
+        line-height: 1.2;
+        margin: 0 0 0.4rem;
+      }
+      h1 {
+        font-size: 34px;
+        letter-spacing: -0.01em;
+      }
+      h2 {
+        font-size: 24px;
+        margin-top: 26px;
+      }
+      h3 {
+        font-size: 18px;
+        margin-top: 20px;
+      }
+      p,
+      li {
+        color: var(--text);
+      }
+      .muted {
+        color: var(--muted);
+      }
+      .badge {
+        display: inline-block;
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid #1f2a3a;
+        background: #0d1a2a;
+        color: #99f6e4;
+        font-size: 12px;
+        font-weight: 700;
+        margin-right: 8px;
+      }
+      pre {
+        background: var(--code);
+        border: 1px solid #101827;
+        color: #cbd5e1;
+        border-radius: 10px;
+        padding: 14px;
+        overflow: auto;
+      }
+      code {
+        font-family: var(--mono);
+      }
+      a {
+        color: #93c5fd;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+      @media (min-width: 820px) {
+        .grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      .toc a {
+        display: block;
+        color: #93c5fd;
+        text-decoration: none;
+        padding: 6px 0;
+        border-bottom: 1px dashed #213048;
+      }
+      .toc a:last-child {
+        border-bottom: 0;
+      }
+      .k {
+        color: #a7f3d0;
+      }
+      .note {
+        border-left: 4px solid var(--brand);
+        padding: 10px 12px;
+        background: #0c1626;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="card" style="margin-bottom: 18px">
+        <span class="badge">HTML • CSS • JS</span>
+        <span class="badge">Responsive</span>
+        <span class="badge">No Framework</span>
+        <h1>Premium Digital Assets Landing — Documentation</h1>
+        <p class="muted">
+          Version 1.0.0 • Built for modern creators, agencies, and SaaS
+          products.
+        </p>
+      </div>
+
+      <div class="grid">
+        <div class="card toc">
+          <h2>Table of Contents</h2>
+          <a href="#intro">1. Overview</a>
+          <a href="#structure">2. File Structure</a>
+          <a href="#quickstart">3. Quick Start</a>
+          <a href="#customize">4. Customization (Colors, Fonts, Spacing)</a>
+          <a href="#sections">5. Page Sections & Markup</a>
+          <a href="#components">6. Components & Utilities</a>
+          <a href="#performance">7. Performance & Accessibility</a>
+          <a href="#faq">8. FAQ & Troubleshooting</a>
+          <a href="#changelog">9. Changelog</a>
+          <a href="#license">10. License</a>
+          <a href="#support">11. Support</a>
+        </div>
+        <div class="card">
+          <h2 id="intro">1) Overview</h2>
+          <p>
+            This package is a
+            <strong>clean, responsive landing page</strong> coded with semantic
+            HTML, modern CSS (Grid/Flex, custom properties), and lightweight
+            JavaScript for micro-interactions. The layout shown in the preview
+            includes:
+          </p>
+          <ul>
+            <li>
+              Hero with headline, bullet points, primary/secondary CTAs and a
+              product mockup
+            </li>
+            <li>“Everything You Need” tri-feature row</li>
+            <li>Premium Features grid</li>
+            <li>Pro Developer Tools highlight panel</li>
+            <li>Security & Compliance section</li>
+            <li>How It Works — 4 steps</li>
+            <li>
+              Simple, Transparent Pricing (Personal / Commercial / Extended)
+            </li>
+            <li>Testimonials</li>
+            <li>FAQ (accordion)</li>
+            <li>Contact block (form UI) and footer links</li>
+          </ul>
+          <p>
+            Everything runs <strong>without frameworks</strong>. You can drop
+            the files into any stack or CMS.
+          </p>
+
+          <h2 id="structure">2) File Structure</h2>
+          <pre><code>/
+├─ index.html
+├─ documentation.html           &lt;— this file
+├─ assets/
+│  ├─ css/
+│  │  ├─ style.css              (main styles, CSS variables)
+│  │  └─ utilities.css          (helpers: layout, spacing, badges)
+│  ├─ js/
+│  │  ├─ main.js                (nav scroll, accordion, minor effects)
+│  │  └─ pricing.js             (toggle "Most Popular", monthly/annual, etc.)
+│  └─ img/                      (icons, mockups, logos)
+└─ LICENSE.txt
+</code></pre>
+
+          <h2 id="quickstart">3) Quick Start</h2>
+          <ol>
+            <li>Copy the folder to your project or hosting.</li>
+            <li>
+              Open <code>index.html</code> in a browser. You should see the full
+              landing page.
+            </li>
+            <li>
+              Edit hero texts, features, prices, and FAQ items directly in the
+              HTML.
+            </li>
+            <li>Adjust colors and typography via CSS variables (see below).</li>
+            <li>
+              Optional: connect form action to your handler/service (Contact
+              section).
+            </li>
+          </ol>
+
+          <h2 id="customize">4) Customization</h2>
+          <h3>4.1 Colors & Theme</h3>
+          <p>
+            All key colors live in <code>assets/css/style.css</code> inside
+            <code>:root</code>:
+          </p>
+          <pre><code>:root{
+  --bg:#0f172a;
+  --surface:#0b1220;
+  --text:#0f172a;
+  --text-inverse:#ffffff;
+  --muted:#475569;
+  --brand:#2563eb;     /* primary */
+  --brand-2:#22c55e;   /* accent  */
+  --card:#ffffff;
+  --card-stroke:#e2e8f0;
+  --shadow-lg:0 10px 30px rgba(2,6,23,.18);
+}
+</code></pre>
+          <div class="note">
+            <strong>Tip:</strong> for a “glow” look, add a soft outer shadow to
+            CTA buttons and a thin 1px outline to glass panels.
+          </div>
+
+          <h3>4.2 Typography</h3>
+          <pre><code>:root{
+  --font-sans: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-size-base: 16px;  /* scale uses clamp() for responsiveness */
+}
+body{ font-family: var(--font-sans); font-size: var(--font-size-base); }
+</code></pre>
+
+          <h3>4.3 Spacing & Layout</h3>
+          <p>
+            Sections use a fluid container <code>.container</code> and an
+            8-point spacing scale. Cards are CSS Grid.
+          </p>
+
+          <h3>4.4 Logos & Mockups</h3>
+          <p>
+            Replace images in <code>assets/img/</code>. Keep PNG/JPG optimized
+            (&lt; 120 KB each).
+          </p>
+
+          <h2 id="sections">5) Page Sections & Markup</h2>
+          <h3>5.1 Hero</h3>
+          <pre><code>&lt;section id="hero" class="hero"&gt;
+  &lt;h1&gt;Premium Digital Assets for Modern Creators&lt;/h1&gt;
+  &lt;ul class="bullets"&gt;
+    &lt;li&gt;Instant download after secure payment&lt;/li&gt;
+    &lt;li&gt;Commercial license included&lt;/li&gt;
+    &lt;li&gt;Free updates and premium support&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;div class="cta-row"&gt;
+    &lt;a class="btn btn-primary" href="#pricing"&gt;Get Instant Access&lt;/a&gt;
+    &lt;a class="btn btn-ghost" href="#preview"&gt;Preview the File&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+
+          <h3>5.2 Feature Trio</h3>
+          <p>
+            Icons are inline SVG or images. Edit copy in
+            <code>index.html</code>.
+          </p>
+
+          <h3>5.3 Premium Features Grid</h3>
+          <p>
+            6 cards. Each has a title and short paragraph. Use the same length
+            for balanced height.
+          </p>
+
+          <h3>5.4 Pro Developer Tools Panel</h3>
+          <p>
+            Gradient panel with bullet list. Update bullets inside
+            <code>.dev-tools</code> list.
+          </p>
+
+          <h3>5.5 Security & Compliance</h3>
+          <ul>
+            <li>Secure Payments (PCI/DSS, 256-bit)</li>
+            <li>Data Privacy (GDPR)</li>
+            <li>License & Access Control</li>
+            <li>Updates & Integrity</li>
+          </ul>
+
+          <h3>5.6 How It Works (4 Steps)</h3>
+          <ol>
+            <li>Choose Your Plan</li>
+            <li>Secure Checkout</li>
+            <li>Receive Confirmation</li>
+            <li>Instant Download</li>
+          </ol>
+
+          <h3>5.7 Pricing</h3>
+          <pre><code>&lt;div class="pricing-grid"&gt;
+  &lt;article class="plan"&gt;Personal — $49&lt;/article&gt;
+  &lt;article class="plan popular"&gt;Commercial — $149&lt;/article&gt;
+  &lt;article class="plan"&gt;Extended — $299&lt;/article&gt;
+&lt;/div&gt;
+</code></pre>
+          <p>
+            Edit prices and bullets per plan. Add the
+            <code>.popular</code> class to highlight a card.
+          </p>
+
+          <h3>5.8 Testimonials</h3>
+          <p>
+            Cards with avatar initials + quote. Keep quotes ~25–35 words for
+            balance.
+          </p>
+
+          <h3>5.9 FAQ (Accordion)</h3>
+          <pre><code>&lt;button class="faq-toggle" aria-expanded="false"&gt;What file formats are included?&lt;/button&gt;
+&lt;div class="faq-panel"&gt;You’ll receive HTML, CSS, JavaScript files...&lt;/div&gt;
+</code></pre>
+          <p>Behavior handled in <code>assets/js/main.js</code>.</p>
+
+          <h3>5.10 Contact</h3>
+          <p>
+            Form UI only. Wire it to your handler/service (Formspree, Netlify
+            Forms, custom endpoint).
+          </p>
+
+          <h2 id="components">6) Components & Utilities</h2>
+          <ul>
+            <li>
+              <code>.btn</code>, <code>.btn-primary</code>,
+              <code>.btn-ghost</code>
+            </li>
+            <li><code>.badge</code> (small pill labels)</li>
+            <li><code>.card</code> (with stroke + shadow)</li>
+            <li>
+              <code>.grid</code> utilities (<code>.cols-2</code>,
+              <code>.cols-3</code>)
+            </li>
+            <li><code>.container</code> width wrapper</li>
+          </ul>
+
+          <h2 id="performance">7) Performance & Accessibility</h2>
+          <ul>
+            <li>
+              Images compressed (JPG 80–90%, PNG optimized). Consider WebP.
+            </li>
+            <li>Animations use transforms/opacity only.</li>
+            <li>Color contrast meets WCAG with default palette.</li>
+            <li>Keyboard focus visible, accordions operable by keyboard.</li>
+          </ul>
+
+          <h2 id="faq">8) FAQ & Troubleshooting</h2>
+          <p>
+            <strong>Layout breaks on long text?</strong> Keep headings under ~64
+            characters and feature blurbs ~120–160 characters.
+          </p>
+          <p>
+            <strong>Icons misaligned?</strong> Keep icon size consistent
+            (24–28px) and align via <code>flex</code> utilities.
+          </p>
+          <p>
+            <strong>Slow load?</strong> Compress images & remove unused icons;
+            inline critical CSS if needed.
+          </p>
+
+          <h2 id="changelog">9) Changelog</h2>
+          <p>
+            <strong>v1.0.0</strong> — Initial release: complete landing with
+            hero, features, security, steps, pricing, testimonials, FAQ,
+            contact.
+          </p>
+
+          <h2 id="license">10) License</h2>
+          <p>
+            One license per end product. Redistribution of the source files
+            “as-is” is not permitted. You can use this template in personal or
+            commercial projects and for client work.
+          </p>
+
+          <h2 id="support">11) Support</h2>
+          <p>
+            Need help? Reach out via your marketplace profile contact. Typical
+            response time: 24–48 hours (UTC+4).
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

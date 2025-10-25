@@ -1,0 +1,10 @@
+@font-face {
+  font-family: TBCXRegular;
+  font-style: normal;
+  src: url("../fonts/TBCXRegular.eot");
+  src: url("../fonts/TBCXRegular.eot") format("embedded-opentype"),
+    url("../fonts/TBCXRegular.ttf") format("truetype"),
+    url("../fonts/TBCXRegular.woff") format("woff"),
+    url("../fonts/TBCXRegular.woff2") format("woff2");
+  font-display: swap;
+}

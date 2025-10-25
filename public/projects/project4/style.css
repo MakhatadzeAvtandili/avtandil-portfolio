@@ -1,0 +1,272 @@
+/* --- General & Reset --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Jost", sans-serif;
+  background-color: #0d1117;
+  color: #c9d1d9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  overflow: hidden; /* Hide overflowing blobs */
+}
+
+/* --- Animated Aurora Background --- */
+.background-aurora {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.4;
+}
+
+.blob1 {
+  width: 400px;
+  height: 400px;
+  background: #0077ff;
+  top: -150px;
+  left: -150px;
+  animation: move 15s infinite alternate;
+}
+
+.blob2 {
+  width: 300px;
+  height: 300px;
+  background: #ff00c3;
+  bottom: -100px;
+  right: -100px;
+  animation: move 20s infinite alternate-reverse;
+}
+.blob3 {
+  width: 250px;
+  height: 250px;
+  background: #00fff7;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: move 12s infinite alternate;
+}
+
+@keyframes move {
+  from {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  to {
+    transform: translate(200px, 100px) rotate(180deg);
+  }
+}
+
+/* --- Form Wrapper & Glass Card --- */
+.form-wrapper {
+  width: 100%;
+  max-width: 550px;
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.glass-card {
+  background: rgba(30, 41, 59, 0.4);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-content h2 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 30px;
+  text-shadow: 0 0 10px rgba(0, 195, 255, 0.5);
+}
+
+/* --- Input Fields with Icons --- */
+.input-container {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.input-icon {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  color: #888;
+  transition: color 0.3s ease;
+}
+.input-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.input-container input,
+.input-container textarea {
+  width: 100%;
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid #334155;
+  border-radius: 10px;
+  padding: 15px 15px 15px 50px;
+  font-size: 16px;
+  color: #e2e8f0;
+  font-family: "Jost", sans-serif;
+  transition: all 0.3s ease;
+}
+.input-container textarea {
+  resize: none;
+  min-height: 100px;
+}
+.input-container label {
+  position: absolute;
+  left: 50px;
+  top: 15px;
+  color: #94a3b8;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+/* --- Focus & Valid State Animations --- */
+.input-container:focus-within .input-icon {
+  color: #00c3ff;
+}
+.input-container input:focus,
+.input-container textarea:focus {
+  outline: none;
+  border-color: #00c3ff;
+  box-shadow: 0 0 15px rgba(0, 195, 255, 0.3);
+}
+.input-container input:focus + label,
+.input-container input:valid + label,
+.input-container textarea:focus + label,
+.input-container textarea:valid + label {
+  top: -10px;
+  left: 45px;
+  font-size: 12px;
+  color: #00c3ff;
+  background: #1e293b;
+  padding: 0 5px;
+}
+
+/* --- Submit Button --- */
+.submit-btn {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(90deg, #0077ff, #00c3ff);
+  transition: box-shadow 0.3s ease;
+}
+.submit-btn:hover {
+  box-shadow: 0 0 20px rgba(0, 195, 255, 0.6);
+}
+
+/* --- Form Status & Success Animation --- */
+#form-status {
+  margin-top: 15px;
+  font-weight: 500;
+  text-align: center;
+}
+#form-status.success {
+  color: #00ffaa;
+}
+#form-status.error {
+  color: #ff4d4d;
+}
+
+.success-message {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(13, 17, 23, 0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s ease;
+}
+.success-message.active {
+  opacity: 1;
+  visibility: visible;
+}
+.success-message p {
+  font-size: 20px;
+  color: #fff;
+  margin-top: 20px;
+}
+
+.checkmark {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: block;
+}
+.checkmark-circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 3;
+  stroke: #00c3ff;
+  fill: none;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+.checkmark-check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  stroke-width: 4;
+  stroke: #00c3ff;
+  fill: none;
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.6s forwards;
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* --- Responsive --- */
+@media (max-width: 600px) {
+  .glass-card {
+    padding: 30px;
+  }
+  .form-content h2 {
+    font-size: 28px;
+  }
+}
