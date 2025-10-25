@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import Hamburger from "./Hamburger";
 
 const Header = () => {
@@ -12,6 +12,7 @@ const Header = () => {
   const [activeSection, setActiveSection] = useState("");
 
   const location = useLocation();
+  const navigate = useNavigate();
   const isHomePage = location.pathname === "/";
 
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -53,6 +54,15 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isHomePage, location.pathname]);
 
+  // If we land on "/" with a hash, auto-scroll smoothly.
+  useEffect(() => {
+    if (isHomePage && location.hash) {
+      const id = location.hash.slice(1);
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [isHomePage, location.hash]);
+
   const navLinks = [
     {
       href: "#workflow",
@@ -81,6 +91,25 @@ const Header = () => {
     { href: "/blog", label: t("header.blog"), type: "page" },
   ];
 
+  const underline = (isActive) =>
+    isActive ? (
+      <motion.span
+        layoutId="active-nav-link"
+        className="pointer-events-none absolute -bottom-2 left-0 w-full h-0.5 bg-primary rounded-full"
+        transition={{ type: "spring", stiffness: 350, damping: 30 }}
+      />
+    ) : null;
+
+  const handleSectionClick = (id) => {
+    if (isHomePage) {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else {
+      navigate(`/#${id}`);
+    }
+    setIsOpen(false);
+  };
+
   const renderNavLink = (link) => {
     const isActive =
       (link.type === "page" && location.pathname === link.href) ||
@@ -88,62 +117,59 @@ const Header = () => {
 
     if (link.type === "page") {
       return (
-        <Link
+        <NavLink
           to={link.href}
+          end
           className="relative text-lg font-medium text-text-secondary hover:text-primary transition-colors"
+          onClick={(e) => {
+            // Close menu and force navigate as a safety fallback
+            setIsOpen(false);
+            if (location.pathname !== link.href) {
+              e.preventDefault();
+              navigate(link.href);
+            }
+          }}
         >
           {link.label}
-          {isActive && (
-            <motion.span
-              layoutId="active-nav-link"
-              className="absolute -bottom-2 left-0 w-full h-0.5 bg-primary rounded-full"
-              transition={{ type: "spring", stiffness: 350, damping: 30 }}
-            />
-          )}
-        </Link>
+          {underline(isActive)}
+        </NavLink>
       );
     }
 
-    if (link.type === "section") {
-      if (isHomePage) {
-        return (
-          <a
-            href={link.href}
-            className="relative text-lg font-medium text-text-secondary hover:text-primary transition-colors"
-          >
-            {link.label}
-            {isActive && (
-              <motion.span
-                layoutId="active-nav-link"
-                className="absolute -bottom-2 left-0 w-full h-0.5 bg-primary rounded-full"
-                transition={{ type: "spring", stiffness: 350, damping: 30 }}
-              />
-            )}
-          </a>
-        );
-      }
-      return (
-        <Link
-          to={`/${link.href}`}
-          className="relative text-lg font-medium text-text-secondary hover:text-primary transition-colors"
-        >
-          {link.label}
-        </Link>
-      );
-    }
+    // section links
+    return isHomePage ? (
+      <button
+        type="button"
+        onClick={() => handleSectionClick(link.id)}
+        className="relative text-lg font-medium text-text-secondary hover:text-primary transition-colors"
+      >
+        {link.label}
+        {underline(isActive)}
+      </button>
+    ) : (
+      <Link
+        to={`/#${link.id}`}
+        className="relative text-lg font-medium text-text-secondary hover:text-primary transition-colors"
+        onClick={() => setIsOpen(false)}
+      >
+        {link.label}
+        {underline(isActive)}
+      </Link>
+    );
   };
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
+      className={`sticky top-0 z-100 transition-all duration-300 ${
         isScrolled ? "bg-white/80 backdrop-blur-lg shadow-sm" : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pointer-events-auto">
         <div className="flex items-center justify-between h-20">
           <Link
             to="/"
             className="text-2xl font-bold tracking-tight text-text-primary"
+            onClick={() => setIsOpen(false)}
           >
             Avtandili<span className="text-primary">.</span>
           </Link>
@@ -192,13 +218,12 @@ const Header = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="md:hidden bg-white/95 backdrop-blur-sm absolute top-full left-0 w-full shadow-lg"
+            className="md:hidden bg-white/95 backdrop-blur-sm absolute top-full left-0 w-full shadow-lg z-90"
           >
             <nav className="flex flex-col items-center space-y-6 py-8">
+              {/* no wrapper onClick here; each link closes the menu itself */}
               {navLinks.map((link) => (
-                <div key={link.href} onClick={() => setIsOpen(false)}>
-                  {renderNavLink(link)}
-                </div>
+                <div key={link.href}>{renderNavLink(link)}</div>
               ))}
               <div className="flex items-center space-x-4 pt-4">
                 <button

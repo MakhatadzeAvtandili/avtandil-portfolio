@@ -57,29 +57,33 @@ function App() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <div className="blob-container">
+      {/* Decorative blobs must be non-interactive and behind content */}
+      <div
+        className="blob-container pointer-events-none fixed inset-0 -z-10"
+        aria-hidden="true"
+      >
         <div className="blob blob-1"></div>
         <div className="blob blob-2"></div>
       </div>
 
-      <AnimatePresence mode="wait">
+      <AnimatePresence initial={false} mode="sync">
         {isPreloaderVisible && <Preloader isLoading={isLoading} />}
       </AnimatePresence>
 
-      <Header />
+      <div className="relative z-20">
+        <Header />
 
-      <div className="grow">
-        <AnimatePresence mode="wait">
+        <div className="grow">
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<LandingPage />} />
             <Route path="/success" element={<Success />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:slug" element={<PostPage />} />
           </Routes>
-        </AnimatePresence>
-      </div>
+        </div>
 
-      <Footer />
+        <Footer />
+      </div>
     </div>
   );
 }

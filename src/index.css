@@ -78,3 +78,14 @@ body {
   background-color: var(--color-primary);
   color: white;
 }
+
+a,
+button {
+  cursor: pointer;
+}
+
+button:disabled,
+[aria-disabled="true"],
+a[aria-disabled="true"] {
+  cursor: not-allowed;
+}
