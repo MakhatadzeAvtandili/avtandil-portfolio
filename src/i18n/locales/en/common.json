@@ -78,5 +78,13 @@
     "title": "Payment Successful!",
     "message": "Thank you for your purchase. Your assets are on their way.",
     "backToHome": "Back to Home"
+  },
+  "blog": {
+    "title": "My Blog",
+    "subtitle": "Technology, design, and development.",
+    "readMore": "Read More",
+    "backToBlog": "Back to Blog",
+    "postNotFound": "Post Not Found",
+    "publishedOn": "Published on"
   }
 }

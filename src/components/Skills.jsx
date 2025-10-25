@@ -18,7 +18,7 @@ const skills = [
 ];
 
 const Skills = () => {
-  const { t } = useTranslation("common"); // შეცვალე namespace თუ სხვაგან გაქვს
+  const { t } = useTranslation("common");
 
   return (
     <section id="skills" className="py-20 md:py-32 bg-background">

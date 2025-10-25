@@ -1,16 +1,16 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
-// Components & Pages
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import Projects from "./components/Projects";
-import About from "./components/About"; // This will be our "Workflow" section
-import Skills from "./components/Skills"; // New skills section
+import About from "./components/About";
+import Skills from "./components/Skills";
 import Contact from "./components/Contact";
 import Success from "./pages/Success";
 import BlogPage from "./pages/BlogPage";
+import PostPage from "./pages/PostPage";
 
 function App() {
   const location = useLocation();
@@ -19,9 +19,9 @@ function App() {
     <>
       <main>
         <Hero />
-        <About /> {/* Workflow Section */}
+        <About />
         <Projects />
-        <Skills /> {/* Tech Stack Section */}
+        <Skills />
         <Contact />
       </main>
       <Footer />
@@ -41,6 +41,7 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/success" element={<Success />} />
           <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:slug" element={<PostPage />} />
         </Routes>
       </AnimatePresence>
     </div>

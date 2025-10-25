@@ -1,3 +1,5 @@
+// თარგმნის კონფიგურაცია i18next-ისთვის
+
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
@@ -13,21 +15,20 @@ const resources = {
   },
 };
 
-// Check localStorage for a saved language, otherwise default to 'ka'
+// ნაგულისხმევი ენის დაყენება (ინგლისურისთვის "en", ქართულისთვის "ka")
 const savedLanguage = localStorage.getItem("language") || "ka";
 
 i18n.use(initReactI18next).init({
   resources,
-  lng: savedLanguage, // Default language
+  lng: savedLanguage, // ნაგულისხმევი ენა
   fallbackLng: "ka",
   ns: ["common"],
   defaultNS: "common",
   interpolation: {
-    escapeValue: false, // React already does escaping
+    escapeValue: false,
   },
 });
 
-// Update localStorage whenever the language changes
 i18n.on("languageChanged", (lng) => {
   localStorage.setItem("language", lng);
 });

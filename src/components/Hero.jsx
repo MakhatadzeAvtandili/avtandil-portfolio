@@ -44,7 +44,6 @@ const Hero = () => {
         animate="visible"
         className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center w-full"
       >
-        {/* Left Content */}
         <div className="text-center lg:text-left">
           <motion.h1
             variants={item}
@@ -97,7 +96,6 @@ const Hero = () => {
           </motion.div>
         </div>
 
-        {/* Right Content - Image */}
         <motion.div variants={item} className="flex justify-center">
           <div className="relative w-[400px] h-[400px] md:w-[500px] md:h-[500px]">
             <div

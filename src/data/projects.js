@@ -1,7 +1,4 @@
-// Use your own project data here.
-// For images, you can place them in `public/projects/` folder
-// and the path would be `/projects/image-name.png`
-// Or use a cloud service like Cloudinary or a placeholder service.
+// პროექტების მონაცემები ორენოვანი სისტემით
 
 export const projectsData = [
   {

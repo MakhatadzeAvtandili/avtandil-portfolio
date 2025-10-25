@@ -5,13 +5,13 @@
   --font-family-georgian: "Noto Sans Georgian", sans-serif;
   --font-family-english: "Inter", sans-serif;
 
-  --color-background: #fdfcfa; /* Warm Off-White */
+  --color-background: #fdfcfa;
   --color-surface: #ffffff;
-  --color-primary: #14b8a6; /* Teal */
-  --color-secondary: #f97316; /* Orange */
-  --color-text-primary: #1f2937; /* Dark Gray */
-  --color-text-secondary: #6b7280; /* Medium Gray */
-  --color-border: #f3f4f6; /* Light Gray Border */
+  --color-primary: #14b8a6;
+  --color-secondary: #f97316;
+  --color-text-primary: #1f2937;
+  --color-text-secondary: #6b7280;
+  --color-border: #f3f4f6;
 }
 
 /* Global Styles */
@@ -30,7 +30,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Animated Gradient Blobs Background */
 .blob-container {
   position: fixed;
   top: 0;
@@ -75,7 +74,6 @@ body {
   }
 }
 
-/* Custom Text Selection Color */
 ::selection {
   background-color: var(--color-primary);
   color: white;
