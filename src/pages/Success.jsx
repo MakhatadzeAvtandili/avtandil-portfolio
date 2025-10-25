@@ -12,7 +12,7 @@ const Success = () => {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 50 }}
       transition={{ duration: 0.5 }}
-      className="flex-grow flex items-center justify-center text-center px-4 bg-white"
+      className="grow flex items-center justify-center text-center px-4 bg-white"
     >
       <SEO
         title={t("seo.success_title")}

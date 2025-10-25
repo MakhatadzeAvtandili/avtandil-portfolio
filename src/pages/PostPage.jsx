@@ -25,7 +25,7 @@ const PostPage = () => {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.3 }}
-      className="flex-grow"
+      className="grow"
     >
       <SEO title={title} description={excerpt} type="article" />
       <div className="bg-white py-20 md:py-32">

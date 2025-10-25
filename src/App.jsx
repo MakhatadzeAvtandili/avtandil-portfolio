@@ -68,7 +68,7 @@ function App() {
 
       <Header />
 
-      <div className="flex-grow">
+      <div className="grow">
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<LandingPage />} />

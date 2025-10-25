@@ -24,7 +24,7 @@ const svgVariants = {
     transition: {
       duration: 1.2,
       ease: "easeInOut",
-      delay: 0.5, // ეს იწყება მას შემდეგ, რაც ტრიალი მორჩება
+      delay: 0.5,
     },
   },
 };
@@ -56,11 +56,10 @@ const Preloader = ({ isLoading }) => {
       variants={preloaderVariants}
       initial="initial"
       exit="exit"
-      className="fixed inset-0 z-[9999] flex items-center justify-center bg-background"
+      className="fixed inset-0 z-9999 flex items-center justify-center bg-background"
     >
       <div className="relative w-48 h-48">
         {!isLoading ? (
-          // ფაზა 2: ტრანსფორმაცია ლოგოდ (A.M.)
           <motion.svg
             width="100"
             height="100"
@@ -69,7 +68,6 @@ const Preloader = ({ isLoading }) => {
             initial="start"
             animate="end"
           >
-            {/* A */}
             <motion.path
               d="M 20 80 L 50 20 L 80 80 M 35 60 L 65 60"
               fill="none"
@@ -78,7 +76,6 @@ const Preloader = ({ isLoading }) => {
               strokeLinecap="round"
               variants={svgVariants}
             />
-            {/* წერტილი . */}
             <motion.path
               d="M 85 80 L 85 80"
               fill="none"
@@ -89,7 +86,6 @@ const Preloader = ({ isLoading }) => {
             />
           </motion.svg>
         ) : (
-          // ფაზა 1: ხაზოვანი ჩატვირთვა
           <motion.div
             variants={loaderVariants}
             animate="animate"
