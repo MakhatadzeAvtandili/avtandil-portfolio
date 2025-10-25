@@ -10,6 +10,7 @@ import About from "./components/About"; // This will be our "Workflow" section
 import Skills from "./components/Skills"; // New skills section
 import Contact from "./components/Contact";
 import Success from "./pages/Success";
+import BlogPage from "./pages/BlogPage";
 
 function App() {
   const location = useLocation();
@@ -39,6 +40,7 @@ function App() {
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<LandingPage />} />
           <Route path="/success" element={<Success />} />
+          <Route path="/blog" element={<BlogPage />} />
         </Routes>
       </AnimatePresence>
     </div>

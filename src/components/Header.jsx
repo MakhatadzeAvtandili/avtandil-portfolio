@@ -1,7 +1,8 @@
+/* eslint-disable no-unused-vars */
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Hamburger from "./Hamburger";
 
 const Header = () => {
@@ -9,6 +10,9 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const changeLanguage = (lng) => {
@@ -19,6 +23,12 @@ const Header = () => {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
+
+      if (!isHomePage) {
+        setActiveSection("");
+        return;
+      }
+
       const sections = ["hero", "workflow", "projects", "skills", "contact"];
       const current = sections.find((id) => {
         const el = document.getElementById(id);
@@ -30,16 +40,85 @@ const Header = () => {
       });
       if (current) setActiveSection(current);
     };
+
     window.addEventListener("scroll", handleScroll);
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isHomePage, location.pathname]);
 
   const navLinks = [
-    { href: "#workflow", label: t("header.about"), id: "workflow" },
-    { href: "#projects", label: t("header.projects"), id: "projects" },
-    { href: "#contact", label: t("header.contact"), id: "contact" },
+    {
+      href: "#workflow",
+      label: t("header.about"),
+      type: "section",
+      id: "workflow",
+    },
+    {
+      href: "#projects",
+      label: t("header.projects"),
+      type: "section",
+      id: "projects",
+    },
+    {
+      href: "#contact",
+      label: t("header.contact"),
+      type: "section",
+      id: "contact",
+    },
+    { href: "/blog", label: t("header.blog"), type: "page" },
   ];
+
+  const renderNavLink = (link) => {
+    const isActive =
+      (link.type === "page" && location.pathname === link.href) ||
+      (link.type === "section" && activeSection === link.id);
+
+    if (link.type === "page") {
+      return (
+        <Link
+          to={link.href}
+          className="relative text-lg font-medium text-text-secondary hover:text-primary transition-colors"
+        >
+          {link.label}
+          {isActive && (
+            <motion.span
+              layoutId="active-nav-link"
+              className="absolute -bottom-2 left-0 w-full h-0.5 bg-primary rounded-full"
+              transition={{ type: "spring", stiffness: 350, damping: 30 }}
+            />
+          )}
+        </Link>
+      );
+    }
+
+    if (link.type === "section") {
+      if (isHomePage) {
+        return (
+          <a
+            href={link.href}
+            className="relative text-lg font-medium text-text-secondary hover:text-primary transition-colors"
+          >
+            {link.label}
+            {isActive && (
+              <motion.span
+                layoutId="active-nav-link"
+                className="absolute -bottom-2 left-0 w-full h-0.5 bg-primary rounded-full"
+                transition={{ type: "spring", stiffness: 350, damping: 30 }}
+              />
+            )}
+          </a>
+        );
+      }
+      return (
+        <Link
+          to={`/${link.href}`}
+          className="relative text-lg font-medium text-text-secondary hover:text-primary transition-colors"
+        >
+          {link.label}
+        </Link>
+      );
+    }
+  };
 
   return (
     <header
@@ -53,26 +132,12 @@ const Header = () => {
             to="/"
             className="text-2xl font-bold tracking-tight text-text-primary"
           >
-            {t("header.logo")}
-            <span className="text-primary">.</span>
+            Avtandili<span className="text-primary">.</span>
           </Link>
 
           <nav className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="relative text-lg font-medium text-text-secondary hover:text-primary transition-colors"
-              >
-                {link.label}
-                {activeSection === link.id && (
-                  <motion.span
-                    layoutId="active-nav-link"
-                    className="absolute -bottom-2 left-0 w-full h-0.5 bg-primary rounded-full"
-                    transition={{ type: "spring", stiffness: 350, damping: 30 }}
-                  />
-                )}
-              </a>
+              <div key={link.href}>{renderNavLink(link)}</div>
             ))}
             <div className="flex items-center space-x-2">
               <button
@@ -83,7 +148,7 @@ const Header = () => {
                     : "text-text-secondary hover:bg-gray-100"
                 }`}
               >
-                {t("header.en")}
+                EN
               </button>
               <button
                 onClick={() => changeLanguage("ka")}
@@ -93,7 +158,7 @@ const Header = () => {
                     : "text-text-secondary hover:bg-gray-100"
                 }`}
               >
-                {t("header.ka")}
+                KA
               </button>
             </div>
           </nav>
@@ -118,14 +183,9 @@ const Header = () => {
           >
             <nav className="flex flex-col items-center space-y-6 py-8">
               {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className="text-2xl font-medium text-text-secondary hover:text-primary transition-colors"
-                >
-                  {link.label}
-                </a>
+                <div key={link.href} onClick={() => setIsOpen(false)}>
+                  {renderNavLink(link)}
+                </div>
               ))}
               <div className="flex items-center space-x-4 pt-4">
                 <button
@@ -136,7 +196,7 @@ const Header = () => {
                       : "text-text-secondary hover:bg-gray-100"
                   }`}
                 >
-                  {t("header.en")}
+                  EN
                 </button>
                 <button
                   onClick={() => changeLanguage("ka")}
@@ -146,7 +206,7 @@ const Header = () => {
                       : "text-text-secondary hover:bg-gray-100"
                   }`}
                 >
-                  {t("header.ka")}
+                  KA
                 </button>
               </div>
             </nav>
