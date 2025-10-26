@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - Avtandili Makhatadze Portfolio</title>
+    
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+
+    <style>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #e5e7eb; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb { background: #9ca3af; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #6b7280; }
+
+        /* Sidebar Active Link Style */
+        .sidebar-link.active {
+            color: #0d9488; /* Teal-600 */
+            background-color: #f0fdfa; /* Teal-50 */
+            border-left-color: #0d9488; /* Teal-600 */
+            font-weight: 600;
+        }
+        .sidebar-link {
+            border-left: 3px solid transparent;
+            transition: all 0.2s ease-in-out;
+        }
+
+        /* Prism.js Customization */
+        .copy-to-clipboard-button {
+            position: absolute; top: 0.75rem; right: 0.75rem; padding: 0.25rem 0.6rem;
+            font-size: 0.75rem; color: #d1d5db; background-color: rgba(55, 65, 81, 0.8);
+            border: none; border-radius: 0.375rem; cursor: pointer; opacity: 0;
+            transition: opacity 0.3s, background-color 0.2s; z-index: 10;
+        }
+        pre[class*="language-"]:hover .copy-to-clipboard-button { opacity: 1; }
+        .copy-to-clipboard-button:hover { background-color: rgba(31, 41, 55, 1); color: white; }
+        pre[class*="language-"] {
+            position: relative; margin-top: 1.2em !important; margin-bottom: 2em !important;
+            border-radius: 0.5rem !important; box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border: 1px solid #374151; /* Gray-700 border */
+            padding-top: 2.5rem !important; /* Space for button */
+        }
+         code[class*="language-"], pre[class*="language-"] {
+             font-size: 0.9em !important; line-height: 1.7 !important;
+             text-shadow: none !important;
+         }
+        /* Custom Header for Code Blocks */
+         pre[class*="language-"]::before {
+            content: attr(data-lang);
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 0.25rem 0.75rem;
+            background-color: #4b5563; /* Gray-600 */
+            color: #e5e7eb; /* Gray-200 */
+            font-size: 0.75rem;
+            font-family: sans-serif;
+            border-bottom-right-radius: 0.375rem;
+            border-top-left-radius: 0.375rem; /* Match parent */
+         }
+
+        /* General Styling */
+        section { margin-bottom: 4rem; padding-top: 2rem; } /* Add padding for scroll spy */
+        .lead { font-size: 1.25rem; color: #4b5563; }
+        details > summary { list-style: none; } /* Hide default marker */
+        details > summary::-webkit-details-marker { display: none; } /* Hide default marker for Chrome */
+        details[open] > summary svg { transform: rotate(90deg); }
+        details svg { transition: transform 0.2s ease-in-out; }
+        
+        /* Typography adjustments */
+        .prose h1, .prose h2 { border-bottom: 1px solid #e5e7eb; padding-bottom: 0.5em; }
+        .prose h3 { color: #0d9488; } /* Teal color for h3 */
+        .prose ol, .prose ul { margin-left: 1.25rem; }
+        .prose li { margin-bottom: 0.75em; }
+        .prose blockquote { border-left-color: #0d9488; background-color: #f0fdfa; color: #115e59;}
+        .prose code { font-size: 0.875em !important; } /* Slightly smaller inline code */
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-700 antialiased">
+
+    <div class="flex flex-col lg:flex-row min-h-screen">
+        
+        <aside class="w-full lg:w-72 bg-white border-r border-gray-200 p-6 lg:p-8 lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto shadow-md lg:shadow-none">
+            <div class="flex items-center gap-2 mb-8">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-teal-600"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                <h2 class="text-2xl font-bold text-gray-900">Documentation</h2>
+            </div>
+            <nav id="sidebar-nav">
+                <ul class="space-y-1">
+                    <li><a href="#introduction" class="sidebar-link flex items-center gap-3 px-4 py-2 text-gray-600 hover:bg-gray-100 hover:text-teal-700 rounded-md">
+                        <i data-feather="play-circle" class="w-4 h-4"></i> Introduction
+                    </a></li>
+                    <li><a href="#tech-stack" class="sidebar-link flex items-center gap-3 px-4 py-2 text-gray-600 hover:bg-gray-100 hover:text-teal-700 rounded-md">
+                        <i data-feather="layers" class="w-4 h-4"></i> Tech Stack
+                    </a></li>
+                    <li><a href="#structure" class="sidebar-link flex items-center gap-3 px-4 py-2 text-gray-600 hover:bg-gray-100 hover:text-teal-700 rounded-md">
+                        <i data-feather="folder" class="w-4 h-4"></i> Project Structure
+                    </a></li>
+                    <li><a href="#features" class="sidebar-link flex items-center gap-3 px-4 py-2 text-gray-600 hover:bg-gray-100 hover:text-teal-700 rounded-md">
+                        <i data-feather="list" class="w-4 h-4"></i> Features & Details
+                    </a></li>
+                    <li><a href="#setup" class="sidebar-link flex items-center gap-3 px-4 py-2 text-gray-600 hover:bg-gray-100 hover:text-teal-700 rounded-md">
+                        <i data-feather="tool" class="w-4 h-4"></i> Local Setup
+                    </a></li>
+                    <li><a href="#customization" class="sidebar-link flex items-center gap-3 px-4 py-2 text-gray-600 hover:bg-gray-100 hover:text-teal-700 rounded-md">
+                        <i data-feather="settings" class="w-4 h-4"></i> Customization
+                    </a></li>
+                    <li><a href="#build" class="sidebar-link flex items-center gap-3 px-4 py-2 text-gray-600 hover:bg-gray-100 hover:text-teal-700 rounded-md">
+                        <i data-feather="package" class="w-4 h-4"></i> Build for Production
+                    </a></li>
+                    <li><a href="#deployment" class="sidebar-link flex items-center gap-3 px-4 py-2 text-gray-600 hover:bg-gray-100 hover:text-teal-700 rounded-md">
+                        <i data-feather="upload-cloud" class="w-4 h-4"></i> Deployment Guide
+                    </a>
+                        <ul class="pl-8 mt-1 space-y-1 text-sm">
+                            <li><a href="#deploy-netlify" class="block py-1 text-gray-500 hover:text-teal-600">Netlify</a></li>
+                            <li><a href="#deploy-vercel" class="block py-1 text-gray-500 hover:text-teal-600">Vercel</a></li>
+                            <li><a href="#deploy-other" class="block py-1 text-gray-500 hover:text-teal-600">Other Options</a></li>
+                        </ul>
+                    </li>
+                     <li><a href="#author-section" class="sidebar-link flex items-center gap-3 px-4 py-2 text-gray-600 hover:bg-gray-100 hover:text-teal-700 rounded-md">
+                        <i data-feather="user" class="w-4 h-4"></i> Author
+                    </a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="flex-1 p-8 md:p-12 lg:p-16 bg-gray-50 overflow-y-auto">
+            <div class="max-w-4xl mx-auto prose prose-lg prose-teal prose-headings:font-semibold prose-headings:text-gray-900 prose-a:font-medium prose-a:text-teal-600 hover:prose-a:text-teal-700 prose-code:before:content-none prose-code:after:content-none prose-code:font-normal prose-code:px-1 prose-code:py-0.5 prose-code:bg-gray-200 prose-code:text-orange-700 prose-code:rounded prose-blockquote:bg-teal-50 prose-blockquote:border-teal-500 prose-blockquote:text-teal-800">
+                
+                <section id="introduction">
+                    <h1 class="!text-5xl !mb-4">Portfolio Documentation</h1>
+                    <p class="lead !text-xl !text-gray-600 !mb-8">
+                        Comprehensive guide for setting up, customizing, and deploying the Avtandili Makhatadze Professional Portfolio website.
+                    </p>
+                    <p>
+                        This project represents a cutting-edge, bilingual (English/Georgian) portfolio website built with a modern tech stack including React, Vite, Tailwind CSS, and Framer Motion. It aims to provide a visually stunning, highly performant, and professional platform ("Summer Breeze" theme) for showcasing skills and projects effectively.
+                    </p>
+                </section>
+
+                <hr class="my-12 border-gray-300">
+
+                <section id="tech-stack">
+                    <h2>Tech Stack</h2>
+                     <div class="grid grid-cols-2 gap-4 not-prose text-base">
+                        <div class="bg-white p-4 border border-gray-200 rounded-lg shadow-sm"><strong>Core Framework:</strong> React 18+</div>
+                        <div class="bg-white p-4 border border-gray-200 rounded-lg shadow-sm"><strong>Build Tool:</strong> Vite</div>
+                        <div class="bg-white p-4 border border-gray-200 rounded-lg shadow-sm"><strong>Styling:</strong> Tailwind CSS v4, @tailwindcss/typography</div>
+                        <div class="bg-white p-4 border border-gray-200 rounded-lg shadow-sm"><strong>Routing:</strong> React Router DOM v6</div>
+                        <div class="bg-white p-4 border border-gray-200 rounded-lg shadow-sm"><strong>Animations:</strong> Framer Motion</div>
+                        <div class="bg-white p-4 border border-gray-200 rounded-lg shadow-sm"><strong>i18n:</strong> react-i18next, i18next</div>
+                        <div class="bg-white p-4 border border-gray-200 rounded-lg shadow-sm"><strong>SEO:</strong> react-helmet-async</div>
+                        <div class="bg-white p-4 border border-gray-200 rounded-lg shadow-sm"><strong>Contact Form:</strong> EmailJS</div>
+                    </div>
+                </section>
+
+                 <hr class="my-12 border-gray-300">
+
+                <section id="structure">
+                    <h2>Project Structure</h2>
+                    <p>The project adheres to a clean and organized Vite + React structure:</p>
+                    <pre data-lang="Tree"><code class="language-plaintext">
+portfolio-react/
+├── public/              # Static assets (favicon, etc.)
+├── src/
+│   ├── assets/          # Images (portrait.jpg)
+│   ├── components/      # Reusable UI components (Header, Preloader, SEO...)
+│   ├── data/            # Static data (projectsData, postsData, testimonialsData)
+│   ├── i18n/            # i18n setup and locale JSON files
+│   ├── pages/           # Route-specific page components (BlogPage, PostPage...)
+│   ├── App.jsx          # Main application component with routing
+│   ├── main.jsx         # App entry point (renders App, sets up providers)
+│   └── index.css        # Global styles & Tailwind config
+├── .gitignore
+├── index.html           # Main HTML template
+├── package.json         # Dependencies and scripts
+├── README.md            # Basic project overview
+└── vite.config.js       # Vite configuration
+                    </code></pre>
+                </section>
+                
+                 <hr class="my-12 border-gray-300">
+
+                <section id="features">
+                    <h2>Features & Implementation Details</h2>
+                    <details class="bg-white border border-gray-200 p-4 rounded-lg mb-4 shadow-sm open:shadow-md transition-shadow">
+                        <summary class="font-semibold cursor-pointer flex items-center gap-2">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                           Routing (React Router v6)
+                        </summary>
+                        <p class="mt-3 pl-6 text-gray-600">Utilizes <code>BrowserRouter</code> with routes defined in <code>App.jsx</code>. Includes dynamic routes like <code>/blog/:slug</code>. The <code>Header</code> component intelligently switches between <code>&lt;a&gt;</code> tags for smooth scrolling on the homepage and <code>&lt;Link&gt;</code> tags for cross-page navigation, ensuring optimal user experience.</p>
+                    </details>
+                    <details class="bg-white border border-gray-200 p-4 rounded-lg mb-4 shadow-sm open:shadow-md transition-shadow">
+                        <summary class="font-semibold cursor-pointer flex items-center gap-2">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                           Internationalization (react-i18next)
+                        </summary>
+                        <p class="mt-3 pl-6 text-gray-600">Fully supports English (<code>en</code>) and Georgian (<code>ka</code>). Translations are managed via JSON files in <code>src/i18n/locales/</code>. User language preference is persisted using <code>localStorage</code>. The <code>useTranslation</code> hook provides easy access to the <code>t</code> function and <code>i18n</code> instance.</p>
+                    </details>
+                     <details class="bg-white border border-gray-200 p-4 rounded-lg mb-4 shadow-sm open:shadow-md transition-shadow">
+                        <summary class="font-semibold cursor-pointer flex items-center gap-2">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                           Animations (Framer Motion)
+                        </summary>
+                        <p class="mt-3 pl-6 text-gray-600">Sophisticated animations are implemented using <code>Framer Motion</code>:</p>
+                        <ul class="!list-disc !pl-12 !text-gray-600">
+                            <li><strong>Preloader:</strong> A unique SVG logo transformation animation provides a high-class loading experience (<code>Preloader.jsx</code>). Uses <code>layoutId</code> for seamless transition potential.</li>
+                            <li><strong>Staggered Entrance:</strong> Components like workflow steps, project cards, and skills fade in sequentially using <code>whileInView</code> and transition delays.</li>
+                            <li><strong>Micro-interactions:</strong> Subtle hover effects (scaling, translation) on cards, buttons, and skill icons enhance user feedback.</li>
+                             <li><strong>Layout Animations:</strong> Used for the active filter pill in the Projects section.</li>
+                        </ul>
+                    </details>
+                    {/* Add similar <details> blocks for Styling, EmailJS, SEO */}
+                     <details class="bg-white border border-gray-200 p-4 rounded-lg mb-4 shadow-sm open:shadow-md transition-shadow">
+                        <summary class="font-semibold cursor-pointer flex items-center gap-2">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                           Styling (Tailwind CSS v4 & Typography)
+                        </summary>
+                         <p class="mt-3 pl-6 text-gray-600">Tailwind CSS v4 is used via the Vite plugin with configuration inside <code>src/index.css</code> (<code>@theme</code>). The design adheres to the "Summer Breeze" light theme. Animated background blobs add subtle visual interest. The <code>@tailwindcss/typography</code> plugin provides excellent default styling for blog post content via the <code>prose</code> classes.</p>
+                    </details>
+                     <details class="bg-white border border-gray-200 p-4 rounded-lg mb-4 shadow-sm open:shadow-md transition-shadow">
+                        <summary class="font-semibold cursor-pointer flex items-center gap-2">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                           EmailJS Contact Form
+                        </summary>
+                         <p class="mt-3 pl-6 text-gray-600">The <code>Contact.jsx</code> form integrates <code>@emailjs/browser</code> for direct email sending. <strong>Remember to replace placeholder keys (<code>YOUR_SERVICE_ID</code>, <code>YOUR_TEMPLATE_ID</code>, <code>YOUR_PUBLIC_KEY</code>) with your actual EmailJS credentials in the code.</strong> Basic validation is included.</p>
+                    </details>
+                     <details class="bg-white border border-gray-200 p-4 rounded-lg mb-4 shadow-sm open:shadow-md transition-shadow">
+                        <summary class="font-semibold cursor-pointer flex items-center gap-2">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                           SEO (react-helmet-async)
+                        </summary>
+                         <p class="mt-3 pl-6 text-gray-600">The <code>SEO.jsx</code> component dynamically manages page titles, meta descriptions, and social sharing tags (Open Graph, Twitter Cards) for optimal search engine visibility and link previews using <code>react-helmet-async</code>.</p>
+                    </details>
+
+                </section>
+
+                 <hr class="my-12 border-gray-300">
+
+                <section id="setup">
+                    <h2>Local Setup Instructions</h2>
+                    <blockquote>Follow these steps carefully to run the project locally.</blockquote>
+                    <h3>Prerequisites</h3>
+                    <ul class="!list-disc !pl-6">
+                        <li>Node.js (v18 or later)</li>
+                        <li>npm (v8 or later)</li>
+                        <li>Git</li>
+                    </ul>
+
+                    <h3>1. Clone Repository</h3>
+                    <pre data-lang="Bash"><code class="language-bash">
+git clone <your-repository-url> portfolio-react
+cd portfolio-react
+                    </code></pre>
+
+                    <h3>2. Install Dependencies</h3>
+                     <pre data-lang="Bash"><code class="language-bash">
+npm install
+                    </code></pre>
+
+                    <h3>3. Configure EmailJS <span class="!text-red-600 !font-bold">(Critical Step!)</span></h3>
+                    <p>Open <code>src/components/Contact.jsx</code> and update the following variables inside the <code>sendEmail</code> function with your EmailJS account details:</p>
+                    <pre data-lang="JavaScript"><code class="language-javascript">
+const serviceID = 'YOUR_SERVICE_ID';   // Replace with your Service ID
+const templateID = 'YOUR_TEMPLATE_ID';  // Replace with your Template ID
+const publicKey = 'YOUR_PUBLIC_KEY';   // Replace with your Public Key (User ID)
+                    </code></pre>
+                     <div class="!bg-blue-50 !border-l-4 !border-blue-500 !text-blue-700 !p-4 !my-4" role="alert">
+                         <p class="!font-bold">Info:</p>
+                         <p class="!mt-1">Make sure your EmailJS template uses the variables <code>from_name</code>, <code>from_email</code>, and <code>message</code>.</p>
+                     </div>
+
+                    <h3>4. Run Development Server</h3>
+                     <pre data-lang="Bash"><code class="language-bash">
+npm run dev
+                    </code></pre>
+                    <p>Access the site at the URL provided in the terminal (usually <a href="http://localhost:5173" target="_blank">http://localhost:5173</a>).</p>
+                </section>
+
+                 <hr class="my-12 border-gray-300">
+
+                 <section id="customization">
+                    <h2>Customization Guide</h2>
+                    <p>Tailor the portfolio to your personal brand:</p>
+                    <ul class="!list-disc !pl-6">
+                        <li><strong>Content (Texts):</strong> Modify the JSON files in <code>src/i18n/locales/</code> for both English and Georgian.</li>
+                        <li><strong>Images:</strong> Replace <code>src/assets/portrait.jpg</code>. Update image paths in <code>src/data/projects.js</code>, <code>src/data/posts.js</code>, and <code>src/data/testimonials.js</code>.</li>
+                        <li><strong>Data Files:</strong> Update the content within <code>src/data/*.js</code> files (projects, posts, testimonials) with your information. Ensure unique <code>slug</code> values.</li>
+                         <li><strong>Skills:</strong> Edit the <code>skills</code> array in <code>src/components/Skills.jsx</code>.</li>
+                        <li><strong>Social Links:</strong> Update URLs in <code>src/components/Hero.jsx</code> and <code>src/components/Footer.jsx</code>.</li>
+                        <li><strong>Theme Colors:</strong> Adjust CSS variables (<code>--color-primary</code>, etc.) in <code>src/index.css</code> under <code>@theme</code>.</li>
+                    </ul>
+                </section>
+
+                <hr class="my-12 border-gray-300">
+
+                 <section id="build">
+                    <h2>Build for Production</h2>
+                    <p>Generate optimized static files for deployment:</p>
+                    <pre data-lang="Bash"><code class="language-bash">
+npm run build
+                    </code></pre>
+                     <p>The output will be created in the <code>dist/</code> folder.</p>
+                </section>
+
+                <hr class="my-12 border-gray-300">
+
+                 <section id="deployment">
+                    <h2>Deployment Guide: Going Live</h2>
+                    <p>Deploy the contents of the <code>dist/</code> folder to any static host.</p>
+                    
+                    <h3 id="deploy-netlify">Option 1: Netlify (Recommended)</h3>
+                    <ol class="!list-decimal !pl-6">
+                        <li>Push your code to a Git provider (GitHub, GitLab, etc.).</li>
+                        <li>Connect your Git provider to Netlify.</li>
+                        <li>Select your repository.</li>
+                        <li>Configure build settings:
+                            <ul>
+                                <li>Build command: <code>npm run build</code></li>
+                                <li>Publish directory: <code>dist</code></li>
+                            </ul>
+                        </li>
+                        <li>Deploy. Netlify automatically handles SPA routing for Vite. If needed, add a <code>public/_redirects</code> file with <code>/* /index.html 200</code>.</li>
+                    </ol>
+                    
+                     <h3 id="deploy-vercel">Option 2: Vercel</h3>
+                     <ol class="!list-decimal !pl-6">
+                         <li>Push code to Git provider.</li>
+                         <li>Connect Git provider to Vercel.</li>
+                         <li>Import your repository. Vercel auto-detects Vite settings (<code>npm run build</code>, output <code>dist</code>).</li>
+                         <li>Deploy. Vercel automatically handles SPA routing.</li>
+                     </ol>
+
+                     <h3 id="deploy-other">Option 3: Other Static Hosts</h3>
+                     <p>Upload the <code>dist/</code> folder contents. <strong>Crucially, you must configure the server to handle SPA routing by redirecting all requests to <code>index.html</code>.</strong> Consult your hosting provider's documentation for specific instructions (e.g., using <code>.htaccess</code> for Apache or Nginx configuration).</p>
+                      <pre data-lang="Nginx (Example)"><code class="language-nginx">
+# Example Nginx configuration snippet for SPA
+server {
+    # ... other server configs ...
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+}
+                    </code></pre>
+                 </section>
+                 
+                 <hr class="my-12 border-gray-300">
+
+                 <section id="author-section">
+                     <h2>Author</h2>
+                     <p>This documentation and the portfolio project were crafted by:</p>
+                     <p class="!font-semibold !text-xl !mt-4">AVTANDILI MAKHATADZE</p>
+                 </section>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        feather.replace();
+
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('#sidebar-nav a.sidebar-link');
+
+        const activateLink = (id) => {
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${id}`) {
+                    link.classList.add('active');
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+                    activateLink(entry.target.id);
+                }
+            });
+        }, { rootMargin: '-30% 0px -70% 0px', threshold: 0.5 });
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+         if (!window.location.hash) {
+             const firstLink = document.querySelector('#sidebar-nav a.sidebar-link');
+             if (firstLink) {
+                 firstLink.classList.add('active');
+             }
+         }
+
+    </script>
+</body>
+</html>

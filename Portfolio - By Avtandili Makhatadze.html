@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ka">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>პორტფოლიო - ავთანდილი მახათაძის მიერ</title>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+          "Segoe UI Symbol";
+        line-height: 1.6;
+        color: #333;
+        background-color: #f8f9fa;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 30px;
+        background-color: #ffffff;
+        border: 1px solid #dee2e6;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      }
+      h1,
+      h2 {
+        color: #212529;
+        border-bottom: 2px solid #0dcaf0; /* Teal color for accent */
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+      }
+      h1 {
+        font-size: 2em;
+        text-align: center;
+      }
+      h2 {
+        font-size: 1.5em;
+        margin-top: 30px;
+      }
+      p {
+        margin-bottom: 15px;
+      }
+      ul {
+        list-style-type: disc;
+        margin-left: 20px;
+        margin-bottom: 15px;
+      }
+      li {
+        margin-bottom: 8px;
+      }
+      code {
+        background-color: #e9ecef;
+        padding: 2px 5px;
+        border-radius: 4px;
+        font-family: monospace;
+        color: #c7254e; /* Pinkish color for code */
+      }
+      strong {
+        color: #0d6efd; /* Blue color for emphasis */
+      }
+      .author {
+        margin-top: 40px;
+        text-align: right;
+        font-style: italic;
+        color: #6c757d;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>პროფესიონალური პორტფოლიოს ვებ-გვერდი</h1>
+
+      <h2>პროექტის მიმოხილვა</h2>
+      <p>
+        ეს პროექტი წარმოადგენს თანამედროვე, სრულად საპასუხო (responsive) და
+        ორენოვან (ქართული/ინგლისური) პორტფოლიოს ვებ-გვერდს, რომელიც შექმნილია
+        უახლესი ვებ-ტექნოლოგიების გამოყენებით. მისი მიზანია დეველოპერისა და
+        დიზაინერის უნარებისა და ნამუშევრების პროფესიონალურად წარმოჩენა.
+      </p>
+
+      <h2>გამოყენებული ტექნოლოგიები</h2>
+      <p>
+        პროექტის ასაწყობად გამოყენებულია შემდეგი ძირითადი ტექნოლოგიები და
+        ბიბლიოთეკები:
+      </p>
+      <ul>
+        <li>
+          <strong>React + Vite:</strong> სწრაფი და თანამედროვე JavaScript
+          ბიბლიოთეკა UI-ის ასაწყობად და Build Tool.
+        </li>
+        <li>
+          <strong>Tailwind CSS v4:</strong> Utility-first CSS ფრეიმვორკი სწრაფი
+          და მოქნილი სტილიზაციისთვის (CSS-first კონფიგურაცია).
+        </li>
+        <li>
+          <strong>React Router:</strong> გვერდებს შორის ნავიგაციისა და
+          მარშრუტიზაციის სამართავად.
+        </li>
+        <li>
+          <strong>react-i18next (i18next):</strong> საიტის ორენოვანი
+          ფუნქციონალის უზრუნველსაყოფად (EN/KA) და თარგმანების სამართავად.
+        </li>
+        <li>
+          <strong>Framer Motion:</strong> დახვეწილი და ეფექტური ანიმაციების
+          შესაქმნელად.
+        </li>
+        <li>
+          <strong>EmailJS:</strong> საკონტაქტო ფორმიდან შეტყობინებების პირდაპირ
+          იმეილზე გასაგზავნად, ბექენდის გარეშე.
+        </li>
+        <li>
+          <strong>react-helmet-async:</strong> SEO-სთვის მნიშვნელოვანი
+          მეტა-თეგების (სათაური, აღწერა) დინამიური მართვისთვის თითოეული
+          გვერდისთვის.
+        </li>
+      </ul>
+
+      <h2>ძირითადი ფუნქციები</h2>
+      <ul>
+        <li>
+          <strong>ორენოვნება:</strong> მარტივი გადართვა ქართულ და ინგლისურ ენებს
+          შორის (ნაგულისხმევი: ქართული). ენის არჩევანი ინახება
+          <code>localStorage</code>-ში.
+        </li>
+        <li>
+          <strong>საპასუხო დიზაინი:</strong> საიტი იდეალურად გამოიყურება ყველა
+          ზომის ეკრანზე (320px-დან ზემოთ).
+        </li>
+        <li>
+          <strong>სექციები:</strong> მთავარი გვერდი დაყოფილია ლოგიკურ სექციებად
+          (Hero, Workflow, Projects, Skills, Testimonials, Contact).
+        </li>
+        <li>
+          <strong>ბლოგი:</strong> დინამიური ბლოგის სექცია პოსტების სიით და
+          ცალკეული პოსტის გვერდებით (<code>/blog/:slug</code>).
+        </li>
+        <li>
+          <strong>SEO ოპტიმიზაცია:</strong> თითოეულ გვერდს აქვს უნიკალური
+          სათაური და აღწერა უკეთესი საძიებო სისტემების შედეგებისთვის.
+        </li>
+        <li>
+          <strong>ჩატვირთვის ანიმაცია (Preloader):</strong> უნიკალური და
+          პროფესიონალური ანიმაცია საიტის პირველადი ჩატვირთვისას.
+        </li>
+        <li>
+          <strong>საკონტაქტო ფორმა:</strong> EmailJS-ის ინტეგრაცია ფორმის
+          მონაცემების პირდაპირ იმეილზე მისაღებად.
+        </li>
+        <li>
+          <strong>Testimonials:</strong> კლიენტების რეკომენდაციების დინამიური
+          სლაიდერი.
+        </li>
+        <li>
+          <strong>თანამედროვე დიზაინი:</strong> "Summer Breeze" კონცეფცია ღია
+          ფერებით, რბილი ანიმაციებით და ჰაეროვანი განლაგებით.
+        </li>
+      </ul>
+
+      <p class="author">ავტორი: ავთანდილი მახათაძე</p>
+    </div>
+  </body>
+</html>
