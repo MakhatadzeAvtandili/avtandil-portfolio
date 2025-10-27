@@ -43,8 +43,8 @@ const Contact = () => {
 
   const validateForm = () => {
     const newErrors = {};
-    const name = form.current.from_name.value;
-    const email = form.current.from_email.value;
+    const name = form.current.name.value;
+    const email = form.current.email.value;
     const message = form.current.message.value;
 
     if (!name) newErrors.name = t("contact.form.validation.nameRequired");
@@ -171,13 +171,13 @@ const Contact = () => {
               className="space-y-6 max-[375px]:space-y-4"
             >
               <Input
-                name="from_name"
+                name="name"
                 type="text"
                 placeholder={t("contact.form.name")}
                 error={errors.name}
               />
               <Input
-                name="from_email"
+                name="email"
                 type="email"
                 placeholder={t("contact.form.email")}
                 error={errors.email}
