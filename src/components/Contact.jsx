@@ -65,7 +65,7 @@ const Contact = () => {
     if (!validateForm()) return;
     setStatus("sending");
     const serviceID = "service_3xy3ecq";
-    const templateID = "template_ovp1osq";
+    const templateID = "template_ztgeg78";
     const publicKey = "rCsbD2ytS1iVxWmeq";
     emailjs.sendForm(serviceID, templateID, form.current, publicKey).then(
       () => {
