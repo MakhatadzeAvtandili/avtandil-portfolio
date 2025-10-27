@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const socialLinks = [
   {
     name: "GitHub",
-    href: "#",
+    href: "https://github.com/MakhatadzeAvtandili",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -24,7 +24,7 @@ const socialLinks = [
   },
   {
     name: "LinkedIn",
-    href: "#",
+    href: "https://www.linkedin.com/in/avtandili-makhatadze/",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -45,7 +45,7 @@ const socialLinks = [
   },
   {
     name: "Telegram",
-    href: "#",
+    href: "https://t.me/makhatadzeavtandili",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
