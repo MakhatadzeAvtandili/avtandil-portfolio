@@ -8,7 +8,8 @@ const SEO = ({ title, description, name, type, ogImage, keywords }) => {
 
   const siteTitle = title ? `${title} - Avtandili Makhatadze` : defaultTitle;
   const siteDescription = description || defaultDescription;
-  const siteOgImage = ogImage || "/social-preview.png";
+  const siteOgImage =
+    ogImage || "https://avtandil-portfolio.vercel.app/social-preview.png";
 
   return (
     <Helmet>
