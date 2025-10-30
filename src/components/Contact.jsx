@@ -133,10 +133,10 @@ const Contact = () => {
                     Email
                   </h3>
                   <a
-                    href="mailto:avtandili.makhatadze@example.com"
+                    href="mailto:avtandili.makhatadze205@cve.tsu.edu.ge"
                     className="text-text-secondary hover:text-primary transition-colors max-[375px]:text-sm"
                   >
-                    avtandili.makhatadze@example.com
+                    avtandili.makhatadze205@cve.tsu.edu.ge
                   </a>
                 </div>
               </div>
@@ -149,77 +149,70 @@ const Contact = () => {
                     Phone
                   </h3>
                   <a
-                    href="tel:+995000000000"
+                    href="tel:+995598500000"
                     className="text-text-secondary hover:text-primary transition-colors max-[375px]:text-sm"
                   >
-                    +995 000 000 000
+                    +995 598 500 000
                   </a>
                 </div>
               </div>
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+          <form
+            ref={form}
+            onSubmit={sendEmail}
+            className="space-y-6 max-[375px]:space-y-4"
           >
-            <form
-              ref={form}
-              onSubmit={sendEmail}
-              className="space-y-6 max-[375px]:space-y-4"
-            >
-              <Input
-                name="name"
-                type="text"
-                placeholder={t("contact.form.name")}
-                error={errors.name}
-              />
-              <Input
-                name="email"
-                type="email"
-                placeholder={t("contact.form.email")}
-                error={errors.email}
-              />
-              <div>
-                <textarea
-                  name="message"
-                  placeholder={t("contact.form.message")}
-                  rows="5"
-                  className={`w-full bg-gray-100 border-2 ${
-                    errors.message ? "border-red-400" : "border-transparent"
-                  } rounded-lg p-4 text-lg text-text-primary placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white transition-all
+            <Input
+              name="name"
+              type="text"
+              placeholder={t("contact.form.name")}
+              error={errors.name}
+            />
+            <Input
+              name="email"
+              type="email"
+              placeholder={t("contact.form.email")}
+              error={errors.email}
+            />
+            <div>
+              <textarea
+                name="message"
+                placeholder={t("contact.form.message")}
+                rows="5"
+                className={`w-full bg-gray-100 border-2 resize-none ${
+                  errors.message ? "border-red-400" : "border-transparent"
+                } rounded-lg p-4 text-lg text-text-primary placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white transition-all
                   max-[375px]:p-3 max-[375px]:text-base`}
-                />
-                {errors.message && (
-                  <p className="text-red-500 text-sm mt-1 max-[375px]:text-xs">
-                    {errors.message}
-                  </p>
-                )}
-              </div>
-              <button
-                type="submit"
-                disabled={status === "sending"}
-                className="w-full bg-primary hover:bg-teal-600 disabled:bg-gray-400 text-white font-bold py-4 px-6 rounded-lg text-lg transition-all transform hover:scale-105
+              />
+              {errors.message && (
+                <p className="text-red-500 text-sm mt-1 max-[375px]:text-xs">
+                  {errors.message}
+                </p>
+              )}
+            </div>
+            <button
+              type="submit"
+              disabled={status === "sending"}
+              className="w-full bg-primary hover:bg-teal-600 disabled:bg-gray-400 text-white font-bold py-4 px-6 rounded-lg text-lg transition-all transform hover:scale-105
                 max-[375px]:py-3 max-[375px]:px-5 max-[375px]:text-base"
-              >
-                {status === "sending"
-                  ? t("contact.form.sending")
-                  : t("contact.form.send")}
-              </button>
-              {status === "success" && (
-                <p className="text-center text-green-600 max-[375px]:text-sm">
-                  {t("contact.form.success")}
-                </p>
-              )}
-              {status === "error" && (
-                <p className="text-center text-red-600 max-[375px]:text-sm">
-                  {t("contact.form.error")}
-                </p>
-              )}
-            </form>
-          </motion.div>
+            >
+              {status === "sending"
+                ? t("contact.form.sending")
+                : t("contact.form.send")}
+            </button>
+            {status === "success" && (
+              <p className="text-center text-green-600 max-[375px]:text-sm">
+                {t("contact.form.success")}
+              </p>
+            )}
+            {status === "error" && (
+              <p className="text-center text-red-600 max-[375px]:text-sm">
+                {t("contact.form.error")}
+              </p>
+            )}
+          </form>
         </div>
       </div>
     </section>
