@@ -4,6 +4,24 @@ import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
 import portrait from "../assets/portrait.jpg";
 
+const DownloadIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="15"
+    height="15"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+    <polyline points="7 10 12 15 17 10"></polyline>
+    <line x1="12" y1="15" x2="12" y2="3"></line>
+  </svg>
+);
+
 const Hero = () => {
   const { t } = useTranslation("common");
   const [roleIndex, setRoleIndex] = useState(0);
@@ -84,22 +102,33 @@ const Hero = () => {
           </motion.p>
           <motion.div
             variants={item}
-            className="mt-8 flex justify-center lg:justify-start gap-4
+            className="mt-8 flex flex-col items-center sm:flex-row sm:justify-center lg:justify-start gap-4
                        max-[375px]:mt-6 max-[375px]:gap-3"
           >
             <a
               href="#contact"
               className="px-8 py-3 bg-primary text-white font-semibold rounded-lg shadow-lg hover:bg-teal-600 transition-transform transform hover:scale-105
-                         max-[375px]:px-5 max-[375px]:py-2 max-[375px]:text-sm"
+                         max-[375px]:px-5 max-[375px]:py-2 max-[375px]:text-sm w-full sm:w-auto inline-flex items-center justify-center"
             >
               {t("contact.title")}
             </a>
             <a
               href="#projects"
               className="px-8 py-3 bg-gray-200 text-text-primary font-semibold rounded-lg hover:bg-gray-300 transition-colors
-                         max-[375px]:px-5 max-[375px]:py-2 max-[375px]:text-sm"
+                         max-[375px]:px-5 max-[375px]:py-2 max-[375px]:text-sm w-full sm:w-auto inline-flex items-center justify-center"
             >
               {t("projects.view")}
+            </a>
+            <a
+              href="/cv/Avtandili_Makhatadze_CV.pdf"
+              download
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 bg-transparent border-2 border-primary text-primary font-semibold rounded-lg hover:bg-primary hover:text-white transition-colors inline-flex items-center gap-2
+                         w-full sm:w-auto justify-center"
+            >
+              <DownloadIcon />
+              <span>{t("hero.downloadCV")}</span>
             </a>
           </motion.div>
         </div>
@@ -107,7 +136,7 @@ const Hero = () => {
         <motion.div variants={item} className="flex justify-center">
           <div
             className="relative w-[400px] h-[400px] md:w-[500px] md:h-[500px]
-                          max-[375px]:w-[260px] max-[375px]:h-[260px]"
+                       max-[375px]:w-[260px] max-[375px]:h-[260px]"
           >
             <div
               className="absolute inset-0 bg-linear-to-br from-primary to-secondary rounded-full"

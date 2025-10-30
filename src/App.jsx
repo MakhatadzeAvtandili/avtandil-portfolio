@@ -57,7 +57,6 @@ function App() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Decorative blobs must be non-interactive and behind content */}
       <div
         className="blob-container pointer-events-none fixed inset-0 -z-10"
         aria-hidden="true"
